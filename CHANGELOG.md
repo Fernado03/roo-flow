@@ -6,6 +6,33 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+- `.roomodes` is now minimal. Each mode's `customInstructions` points at
+  the matching `.roo/rules-{modeSlug}/` folder for detailed behavior.
+- Mode behavior moved out of `.roomodes` into mode-rule files:
+  - `.roo/rules-custom-orchestrator/00-routing.md`,
+    `01-delegation-message.md`
+  - `.roo/rules-system-architect/00-scope.md`,
+    `01-feature-prototype.md`, `02-completion.md`
+  - `.roo/rules-code-tweaker/00-scope.md`, `01-completion.md`
+
+### Added
+- `.roo/rules-custom-orchestrator/` — new mode-rules folder for the
+  orchestrator.
+- `docs/mode-rules.md` — documents the three-tier rule layout
+  (`rules/`, `rules-{modeSlug}/`, `skills/`) and the deprecation of
+  `.roorules-{modeSlug}` and `.clinerules-{modeSlug}` single-file forms.
+- `docs/out-of-scope/` — long policy notes moved out of
+  `.roo/rules/out-of-scope/` so they no longer load on every turn.
+
+### Removed
+- `templates/full/.roo/rules/out-of-scope/` — relocated to
+  `docs/out-of-scope/`.
+- `templates/full/.roo/rules-code-tweaker/README.md` and
+  `templates/full/.roo/rules-system-architect/README.md` — auto-loaded
+  README files were costing tokens every turn. Their content is now in
+  `docs/mode-rules.md`.
+
 ## [0.1.0] - 2026-05-26
 
 ### Added

@@ -3,6 +3,15 @@
 Common failure modes and their fixes. Each section starts with the
 symptom you will actually see in chat or in tool output.
 
+> **Where rules live, in one paragraph.** Global rules that apply to
+> every mode are in `.roo/rules/`. Mode-specific behavior is in
+> `.roo/rules-{modeSlug}/` — `rules-custom-orchestrator/`,
+> `rules-system-architect/`, `rules-code-tweaker/`. `.roomodes` is
+> minimal and points at those folders. The legacy
+> `.roorules-{modeSlug}` and `.clinerules-{modeSlug}` single-file
+> forms are deprecated and not used. See [`mode-rules.md`](mode-rules.md)
+> for the full layout.
+
 ## `.roo/rules/skills/...` ENOENT
 
 **Symptom**

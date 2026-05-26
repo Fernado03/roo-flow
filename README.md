@@ -62,6 +62,14 @@ flowchart TD
 | `code-tweaker`        | ⚡ Code Tweaker        | Implementation, TDD, docs updates, prototypes, commits.    | Full repo edits within the assigned command    | `switch_mode` to architect in same window   |
 
 Modes are defined in [`templates/full/.roomodes`](templates/full/.roomodes).
+The file is intentionally minimal — each mode's `customInstructions`
+points at the matching `.roo/rules-{modeSlug}/` folder, where the actual
+behavior lives. See [`docs/mode-rules.md`](docs/mode-rules.md) for the
+layout and the rationale.
+
+> Roo Flow uses the `.roo/rules-{modeSlug}/` directory form. The legacy
+> `.roorules-{modeSlug}` and `.clinerules-{modeSlug}` single-file forms
+> are deprecated and not used.
 
 ## Commands
 

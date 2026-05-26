@@ -9,17 +9,26 @@ the way it is.
 
 ```
 templates/full/
-├── .roomodes                     # mode definitions + routing matrix
+├── .roomodes                       # minimal: slug, groups, short pointers
 └── .roo/
-    ├── rules/                    # always-on, every mode, every turn
+    ├── rules/                      # always-on, every mode, every turn
     │   ├── 00-claude.md
     │   ├── 00-paths.md
     │   ├── 01-command-protocol.md
-    │   └── 02-skills-index.md
-    ├── rules-code-tweaker/       # mode-scoped, code-tweaker only
-    ├── rules-system-architect/   # mode-scoped, system-architect only
-    ├── commands/                 # slash commands (the public API)
-    └── skills/                   # on-demand skills, loaded by commands
+    │   ├── 02-skills-index.md
+    │   └── 03-manual-reply-protocol.md
+    ├── rules-custom-orchestrator/  # mode-scoped, orchestrator only
+    │   ├── 00-routing.md
+    │   └── 01-delegation-message.md
+    ├── rules-system-architect/     # mode-scoped, architect only
+    │   ├── 00-scope.md
+    │   ├── 01-feature-prototype.md
+    │   └── 02-completion.md
+    ├── rules-code-tweaker/         # mode-scoped, tweaker only
+    │   ├── 00-scope.md
+    │   └── 01-completion.md
+    ├── commands/                   # slash commands (the public API)
+    └── skills/                     # on-demand skills, loaded by commands
         ├── engineering/
         ├── productivity/
         ├── misc/
@@ -27,19 +36,34 @@ templates/full/
         └── in-progress/
 ```
 
+`.roomodes` is intentionally minimal. It declares each mode's slug,
+role, tool groups, and a short `customInstructions` block that points
+at the matching `.roo/rules-{modeSlug}/` folder. All detailed mode
+behavior lives in the rule files inside that folder. See
+[`mode-rules.md`](mode-rules.md) for the full layout rationale.
+
+> The legacy `.roorules-{modeSlug}` and `.clinerules-{modeSlug}`
+> single-file forms are deprecated. Roo Flow uses the
+> `.roo/rules-{modeSlug}/` directory form only.
+
 ## Modes
 
 ### `custom-orchestrator`
 
-Defined in `templates/full/.roomodes`. Tool groups: **none**. The
-orchestrator cannot read, edit, run commands, or call MCP tools. It exists
-to do exactly four things:
+Defined in `templates/full/.roomodes`. Tool groups: **none**. Detailed
+behavior lives in
+[`.roo/rules-custom-orchestrator/`](../templates/full/.roo/rules-custom-orchestrator/)
+(`00-routing.md`, `01-delegation-message.md`).
+
+The orchestrator cannot read, edit, run commands, or call MCP tools. It
+exists to do exactly four things:
 
 1. Read the user request.
-2. Map it to a command using the **Routing Matrix** in its
+2. Map it to a command using the routing matrix in its
    `customInstructions`.
 3. Either delegate via `new_task` (when the user supplied an explicit
-   slash command) or propose 1–2 commands and halt (when the user did not).
+   slash command) or offer 1-2 numbered workflow choices and halt
+   (when they did not).
 4. Summarize the subtask result and halt again.
 
 It never uses `switch_mode`. If `new_task` is unavailable, it stops and
@@ -54,6 +78,10 @@ matches Markdown files, `.scratch/`, and `docs/`. The `fileRegex` lives in
 ```json
 { "fileRegex": "(.*\\.md$|^\\.scratch/.*|^docs/.*)" }
 ```
+
+Detailed behavior lives in
+[`.roo/rules-system-architect/`](../templates/full/.roo/rules-system-architect/)
+(`00-scope.md`, `01-feature-prototype.md`, `02-completion.md`).
 
 The architect plans, diagnoses, refactors, explores, and triages. It cannot
 edit application source code. When implementation is needed, it
@@ -71,8 +99,12 @@ Hard stops are baked in:
 ### `code-tweaker`
 
 Tool groups: `read`, `edit`, `command`, `mcp`. Full repo access within the
-assigned command. The tweaker implements, runs tests, updates docs, builds
-prototypes, and prepares commits.
+assigned command. Detailed behavior lives in
+[`.roo/rules-code-tweaker/`](../templates/full/.roo/rules-code-tweaker/)
+(`00-scope.md`, `01-completion.md`).
+
+The tweaker implements, runs tests, updates docs, builds prototypes, and
+prepares commits.
 
 Hard stops:
 
