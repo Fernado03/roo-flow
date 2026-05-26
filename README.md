@@ -102,7 +102,7 @@ into your target workspace.
 ### macOS / Linux
 
 ```sh
-git clone https://github.com/your-org/roo-flow.git
+git clone https://github.com/Fernado03/roo-flow.git
 cd /path/to/your/project
 cp -R /path/to/roo-flow/templates/full/.roo .
 cp /path/to/roo-flow/templates/full/.roomodes .
@@ -111,7 +111,7 @@ cp /path/to/roo-flow/templates/full/.roomodes .
 ### Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/your-org/roo-flow.git
+git clone https://github.com/Fernado03/roo-flow.git
 Set-Location C:\path\to\your\project
 Copy-Item -Recurse C:\path\to\roo-flow\templates\full\.roo .
 Copy-Item C:\path\to\roo-flow\templates\full\.roomodes .

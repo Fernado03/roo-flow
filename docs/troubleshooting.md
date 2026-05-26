@@ -33,13 +33,13 @@ workspace-root `.roo/skills/...`. The most common triggers:
    path must look like:
 
    ```
-   .roo/skills/<bucket>/<skill>/SKILL.md
+   .roo/skills/{bucket}/{skill}/SKILL.md
    ```
 
    Not:
 
    ```
-   .roo/rules/skills/<bucket>/<skill>/SKILL.md
+   .roo/rules/skills/{bucket}/{skill}/SKILL.md
    ```
 
 3. Re-run the smoke test in
@@ -93,7 +93,7 @@ command protocol expects the mode to fall back gracefully.
 1. Confirm `templates/full/.roo/rules/01-command-protocol.md` is loaded.
    It is the rule that tells the mode what to do.
 2. Step 3 of the protocol is the fallback: read
-   `templates/full/.roo/commands/<command>.md` directly and execute it.
+   `templates/full/.roo/commands/{command}.md` directly and execute it.
    If the mode does not do this, the rule is not in context.
 3. If `run_slash_command` is disabled by host policy, the file fallback
    is the supported path. Document that for your team and move on.

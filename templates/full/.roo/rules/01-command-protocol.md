@@ -15,7 +15,7 @@ Protocol:
 
 3. Fallback execution:
    - If `run_slash_command` is unavailable, disabled, rejected, or fails, read the command file from:
-     - `.roo/commands/<command>.md`
+     - `.roo/commands/{command}.md`
 
 4. If the command file references a skill:
    - Read the exact `.roo/skills/...` path from the command file.

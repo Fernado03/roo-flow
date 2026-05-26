@@ -4,11 +4,11 @@ All skill and command paths are workspace-root paths.
 
 Valid skill path form:
 
-- `.roo/skills/<bucket>/<skill>/SKILL.md`
+- `.roo/skills/{bucket}/{skill}/SKILL.md`
 
 Valid command path form:
 
-- `.roo/commands/<command>.md`
+- `.roo/commands/{command}.md`
 
 Commands and modes must load skills only from `.roo/skills/...`.
 

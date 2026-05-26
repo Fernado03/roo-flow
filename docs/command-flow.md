@@ -99,8 +99,8 @@ flow unsafe.
 When the orchestrator hands work to a mode, the `new_task` message
 contains, at minimum:
 
-- `/<command>` — the slash form, so it is greppable in chat.
-- `<command>` — the normalized name, so the receiving mode can hand it
+- `/{command}` — the slash form, so it is greppable in chat.
+- `{command}` — the normalized name, so the receiving mode can hand it
   to `run_slash_command`.
 - The user context.
 - A reminder to follow `templates/full/.roo/rules/01-command-protocol.md`.

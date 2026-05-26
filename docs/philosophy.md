@@ -30,13 +30,13 @@ This has two payoffs:
 - Each command file is a single, readable place to change behavior. No
   hunting through prompts.
 
-Commands live at `templates/full/.roo/commands/<command>.md` and are loaded
+Commands live at `templates/full/.roo/commands/{command}.md` and are loaded
 through the protocol described in
 [`architecture.md`](architecture.md#command-protocol).
 
 ## 3. Path safety beats cleverness
 
-Skills always live at `templates/full/.roo/skills/<bucket>/<skill>/SKILL.md`.
+Skills always live at `templates/full/.roo/skills/{bucket}/{skill}/SKILL.md`.
 Never under `.roo/rules/`. Never relative to the command file. Never invented
 by the model.
 

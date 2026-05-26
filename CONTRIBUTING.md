@@ -10,7 +10,7 @@ are very welcome.
   control plane. New skills are accepted only when they pull their weight
   inside an existing command flow.
 - Preserve path safety. Skills always live under
-  `templates/full/.roo/skills/<bucket>/<skill>/SKILL.md`. Never reference
+  `templates/full/.roo/skills/{bucket}/{skill}/SKILL.md`. Never reference
   skills under `.roo/rules/` or relative to a command file. See
   [`docs/architecture.md`](docs/architecture.md) and
   [`templates/full/.roo/rules/00-paths.md`](templates/full/.roo/rules/00-paths.md).

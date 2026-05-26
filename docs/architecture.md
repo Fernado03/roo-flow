@@ -95,7 +95,7 @@ When a mode is assigned a slash command:
 2. **Prefer `run_slash_command`.** Pass the normalized name as `command`
    and the full task context as `args`.
 3. **Fall back to the file.** If `run_slash_command` is unavailable,
-   disabled, or fails, read `templates/full/.roo/commands/<command>.md`
+   disabled, or fails, read `templates/full/.roo/commands/{command}.md`
    and execute its instructions.
 4. **Resolve skills via the file.** If the command references a skill,
    read the exact `.roo/skills/...` path the command provides. Do not
@@ -113,8 +113,8 @@ The path-safety contract is in
 [`templates/full/.roo/rules/00-paths.md`](../templates/full/.roo/rules/00-paths.md).
 Two rules:
 
-- Skills are at workspace-root paths under `.roo/skills/<bucket>/<skill>/SKILL.md`.
-- Commands are at workspace-root paths under `.roo/commands/<name>.md`.
+- Skills are at workspace-root paths under `.roo/skills/{bucket}/{skill}/SKILL.md`.
+- Commands are at workspace-root paths under `.roo/commands/{name}.md`.
 
 The forbidden form is anything under `.roo/rules/skills/...` or
 `.roo/rules/commands/...`. Modes that try to load skills relative to a
