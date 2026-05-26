@@ -262,6 +262,21 @@ anything; it hands work off to the architect or the tweaker via
 Mode-internal context, scratch work, and false starts stay in the
 subtask.
 
+## Proceed policy
+
+Zoo Flow delegated tasks include a proceed policy so workers know when
+to continue and when to ask the user.
+
+Policies:
+
+- `Proceed automatically after audit if clean`
+- `Ask user before implementation`
+- `Stop and report only`
+
+This prevents unnecessary questions during well-specified subtasks,
+while preserving approval gates for hypotheses, architecture decisions,
+commits, issue changes, and irreversible actions.
+
 ## `attempt_completion`
 
 Used at the end of a delegated subtask. It is **not** an escape hatch.

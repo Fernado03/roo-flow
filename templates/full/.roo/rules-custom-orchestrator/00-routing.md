@@ -11,4 +11,6 @@ Delegate only with `new_task` to:
 - `code-tweaker`
 - `system-architect`
 
+When delegating, choose the safest proceed policy from `01-delegation-message.md`.
+
 After a subtask returns, summarize and stop. Do not auto-launch another subtask.

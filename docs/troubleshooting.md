@@ -236,3 +236,18 @@ manually types them into the chat.
 
 The short rule that enforces this lives in
 [`templates/full/.roo/rules/03-manual-reply-protocol.md`](../templates/full/.roo/rules/03-manual-reply-protocol.md).
+
+## Proceed policy
+
+Zoo Flow delegated tasks include a proceed policy so workers know when
+to continue and when to ask the user.
+
+Policies:
+
+- `Proceed automatically after audit if clean`
+- `Ask user before implementation`
+- `Stop and report only`
+
+This prevents unnecessary questions during well-specified subtasks,
+while preserving approval gates for hypotheses, architecture decisions,
+commits, issue changes, and irreversible actions.
