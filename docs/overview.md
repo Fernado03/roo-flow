@@ -20,7 +20,8 @@ Zoo Flow takes a different bet:
 - A **tweaker mode** implements, runs tests, prototypes, and commits —
   only when explicitly approved.
 - A small set of **slash commands** acts as the public API between
-  you and the modes.
+  you and the modes. Free-form requests go through the orchestrator;
+  typing a slash command jumps straight to its configured mode.
 - A few **always-on rules** keep the path layout honest and stop
   skill paths from drifting under `.roo/rules/`.
 

@@ -6,6 +6,7 @@ Suggestions:
 
 - Descriptive labels OK.
 - No slash commands or mode names.
+- No per-option mode-switch indicator unless clicking that option really should switch modes. For "pick a number" routing questions, leave the indicator off.
 - Include a Hold/Skip option when relevant.
 
 Question body:
@@ -19,7 +20,7 @@ Example:
 
 Question: Pick a regression test option.
 
-1. Import-time smoke test
+1. Import-time sanity check
 2. Extract helper and unit-test
 3. AST guard test
 4. Hold

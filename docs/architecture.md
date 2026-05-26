@@ -270,6 +270,4 @@ architect uses `switch_mode` first.
 
 `attempt_completion` returns to the orchestrator with a structured summary.
 The orchestrator then summarizes for the user and halts. It never
-auto-launches the next subtask, even if the summary suggests one. That
-rule is the reason for "slash command leakage" being a smoke test —
-without it, a chatty subtask summary can hijack the routing.
+auto-launches the next subtask, even if the summary suggests one.

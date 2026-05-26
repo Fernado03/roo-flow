@@ -71,11 +71,3 @@ is the part that should be stable.
 
 If a skill cannot be invoked through a command, it does not belong in the
 template.
-
-## 7. Smoke tests over correctness proofs
-
-A short, fixed set of smoke tests catches the common breakages: the
-orchestrator skipping the proposal step, an architect editing source, a
-slash command leaking out of a subtask summary, a skill path drifting under
-`.roo/rules/`. They are listed in [`smoke-tests.md`](smoke-tests.md). Run
-them after any change to the modes, commands, or rules.

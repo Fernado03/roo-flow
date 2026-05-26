@@ -246,7 +246,7 @@ ${didBackup ? `Backup:\n  ${backupDir}\n` : ""}Next:
   1. Reload VS Code
   2. Open Zoo Code
   3. Switch to custom-orchestrator
-  4. Smoke test:
+  4. Try a small request, e.g.:
        change a harmless comment in README
 
 When workflow choices appear, type the number manually, e.g. 1.

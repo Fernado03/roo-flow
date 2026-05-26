@@ -1,6 +1,6 @@
 # Zoo Flow
 
-> **Smoke-tested workflow control plane for [Zoo Code](https://docs.zoocode.dev/).**
+> **Workflow control plane for [Zoo Code](https://docs.zoocode.dev/).**
 
 A small, opinionated template that turns Zoo Code into a predictable
 mode + command + skill orchestrator. Three modes, a fixed routing
@@ -32,15 +32,7 @@ A timestamped backup is always written to `.zoo-flow-backup/` before
 overwrite.
 
 After install, reload VS Code (Command Palette → **Developer: Reload
-Window**), open Zoo Code, switch to `custom-orchestrator`, and try a
-small request like:
-
-> change a harmless comment in `README`
-
-Numbered choices are safe to click or type. Suggestions never carry
-slash commands or mode names, so they will not route you into another
-mode — see
-[`docs/troubleshooting.md`](docs/troubleshooting.md#clickable-suggestions-can-route-incorrectly).
+Window**) and open Zoo Code.
 
 > **Note**: `.roomodes`, `.roo/commands/`, and `.roo/rules-{mode-slug}/`
 > are kept as-is because they are the official Zoo Code configuration
@@ -54,6 +46,32 @@ repo. It seeds an `## Agent skills` block in `AGENTS.md` or
 skills know your tracker, labels, and domain layout. Skip it if you
 only plan to use `/tweak`, `/fix`, `/explore`, `/refactor`,
 `/diagnose`, `/prototype`, `/update-docs`, or `/commit-and-document`.
+
+## Using it
+
+Zoo Code switches modes automatically when you type a slash command,
+based on the `mode:` field in the command file. That gives you two
+ways to drive Zoo Flow, and the choice matters:
+
+- **Free-form request from `custom-orchestrator`** (no leading slash).
+  The orchestrator picks a workflow, proposes it as a numbered choice,
+  and delegates only after you confirm. Use this when you want the
+  router to think first. This is how `custom-orchestrator` is
+  designed to work.
+
+  > change a harmless comment in `README`
+
+- **Direct slash command from any mode.** The host switches you to
+  the command's configured mode and runs it, bypassing the
+  orchestrator entirely. Use this when you already know which
+  workflow you want.
+
+  > /tweak fix the typo in `README`
+
+Numbered choices the orchestrator presents are answered by typing
+the number. Clicking is safe when the suggestion has no mode-switch
+indicator at the bottom-right; otherwise type instead. See
+[`docs/troubleshooting.md`](docs/troubleshooting.md#clickable-suggestions-can-route-incorrectly).
 
 ## Update
 
@@ -118,13 +136,8 @@ need them.
 Command files live in
 [`templates/full/.roo/commands/`](templates/full/.roo/commands).
 
-## Smoke tests
+## Worked examples
 
-A short, fixed set of smoke tests in
-[`docs/smoke-tests.md`](docs/smoke-tests.md) verifies routing, mode
-boundaries, and skill loading. Worked examples:
-
-- [`examples/tweak-smoke-test.md`](examples/tweak-smoke-test.md)
 - [`examples/fix-flow.md`](examples/fix-flow.md)
 - [`examples/feature-flow.md`](examples/feature-flow.md)
 

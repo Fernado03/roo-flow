@@ -6,6 +6,64 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-05-26
+
+### Removed
+- Smoke-test infrastructure and references throughout the repo. The
+  dedicated docs were not pulling their weight relative to the
+  worked examples and the doctor command, and several places had
+  drifted into using "smoke test" as filler. Specifically:
+  - Deleted `docs/smoke-tests.md` and
+    `examples/tweak-smoke-test.md`.
+  - Dropped the "Smoke-tested" qualifier from the `README.md`
+    tagline and from `package.json` `description`.
+  - Removed the `README.md` "Smoke tests" section; the surviving
+    worked examples (`fix-flow.md`, `feature-flow.md`) are now
+    listed under "Worked examples".
+  - Removed section "7. Smoke tests over correctness proofs" from
+    `docs/philosophy.md`.
+  - Trimmed smoke-test phrasing from `docs/comparison.md`,
+    `docs/architecture.md`, and `docs/troubleshooting.md`.
+  - Dropped the smoke-test ground rule, "easy to land" bullet,
+    local-checks step, and PR checklist item from
+    `CONTRIBUTING.md`.
+  - Dropped the CI smoke-test bullet from `ROADMAP.md`.
+  - Replaced the "Smoke test:" line in `bin/zoo-flow.js`
+    post-install instructions with a neutral "Try a small request".
+  - Renamed the example option label "Import-time smoke test" to
+    "Import-time sanity check" in
+    `templates/full/.roo/rules/03-manual-reply-protocol.md` and
+    `docs/troubleshooting.md`. The phrase was incidental example
+    text, not a reference to Zoo Flow's removed smoke-test suite,
+    but it was renamed to avoid confusion.
+
+  Validation now relies on `node bin/zoo-flow.js doctor` (the
+  template still passes) and the worked examples. The previous
+  smoke-test docs are recoverable from git history at tag
+  `v0.1.2` if anyone wants to reintroduce them.
+
+### Added
+- `README.md` "Using it" section explains the two ways to drive Zoo
+  Flow: free-form requests from `custom-orchestrator` (router-first,
+  proposes a workflow) versus typing a slash command directly from
+  any mode (Zoo Code switches to the command's configured mode and
+  bypasses the orchestrator). Mirrors a one-line clarification in
+  `docs/overview.md`.
+
+### Changed
+- `docs/troubleshooting.md` "Clickable suggestions can route
+  incorrectly" and `templates/full/.roo/rules/03-manual-reply-protocol.md`
+  now also call out Zoo Code's per-option mode-switch indicator (the
+  small icon at the bottom-right of each suggestion). Clean label
+  text alone is not enough; the indicator switches the active mode
+  on click and must be left off for ordinary "pick a number"
+  routing questions. The user-side guidance is simpler than the
+  authoring rule: type the number, or click only when no indicator
+  is shown.
+- `README.md` softened the "Numbered choices ... are safe to click or
+  type" line to reflect the indicator-based safety check rather than
+  a claim about label content.
+
 ## [0.1.2] - 2026-05-26
 
 ### Changed
@@ -15,7 +73,7 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   stays a single short prompt and must use real newlines, fixing a
   symptom where literal `\n\n` rendered as text in chat. Typed
   numeric replies remain valid.
-- `docs/troubleshooting.md` and `docs/smoke-tests.md` updated to
+- `docs/troubleshooting.md` updated to
   match: clicking a numbered suggestion is safe because labels no
   longer carry slash or mode tokens.
 - `README.md` softened the "type the number manually" guidance for
@@ -79,9 +137,9 @@ First public npm release as `@fernado03/zoo-flow`.
 - `docs/mode-rules.md` documenting the three-tier rule layout.
 - `docs/skill-maintenance.md` — repo-maintenance policy kept out of
   the runtime context.
-- Documentation set: `philosophy.md`, `architecture.md`, `smoke-tests.md`,
+- Documentation set: `philosophy.md`, `architecture.md`,
   `command-flow.md`, `troubleshooting.md`, `comparison.md`.
-- Worked examples: `tweak-smoke-test.md`, `fix-flow.md`, `feature-flow.md`.
+- Worked examples: `fix-flow.md`, `feature-flow.md`.
 - MIT license, contributor guide, security policy, and `.gitignore`.
 
 ### Changed
@@ -97,7 +155,8 @@ First public npm release as `@fernado03/zoo-flow`.
   npm release. It was never published to a registry. The first
   publicly distributed `0.1.0` is this Zoo Flow release on npm.
 
-[Unreleased]: https://github.com/Fernado03/zoo-flow/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/Fernado03/zoo-flow/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.3
 [0.1.2]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.2
 [0.1.1]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.1
 [0.1.0]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.0

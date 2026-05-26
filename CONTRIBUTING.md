@@ -14,8 +14,6 @@ small, validated, and predictable are very welcome.
   skills under `.roo/rules/` or relative to a command file. See
   [`docs/architecture.md`](docs/architecture.md) and
   [`templates/full/.roo/rules/00-paths.md`](templates/full/.roo/rules/00-paths.md).
-- Smoke-test before opening a PR. Run the checks in
-  [`docs/smoke-tests.md`](docs/smoke-tests.md) and note any failures.
 - Don't commit secrets, local journals, `.env`, or project-private notes.
 - Do not rename the `.roo/` paths. `.roomodes`, `.roo/commands/`, and
   `.roo/rules-{mode-slug}/` are the official Zoo Code configuration
@@ -30,7 +28,6 @@ small, validated, and predictable are very welcome.
 - New skills under an existing bucket, with a one-line entry added to
   [`docs/skills-index.md`](docs/skills-index.md)
   and the bucket `README.md`.
-- Smoke-test additions covering real failure modes.
 
 ## What needs a discussion first
 
@@ -61,14 +58,12 @@ Before opening a pull request:
    ```
    Hits inside skill or command guidance about *redacting* secrets are fine;
    actual values are not.
-4. Run the smoke tests in [`docs/smoke-tests.md`](docs/smoke-tests.md).
 
 ## Pull request checklist
 
 - [ ] `.roomodes` is valid JSON.
 - [ ] No new skill paths under `.roo/rules/`.
 - [ ] No secrets, no local journals, no `.env`.
-- [ ] Smoke tests pass for the modes and commands you touched.
 - [ ] `CHANGELOG.md` updated under `## [Unreleased]`.
 - [ ] If you added a skill, it appears in the bucket `README.md` and in
       `docs/skills-index.md`.

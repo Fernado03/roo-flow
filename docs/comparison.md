@@ -14,10 +14,10 @@ right tool for the job.
   large agent harness. The center of gravity is the *runtime*: a rich
   agent loop, memory, and tooling stack.
 - **Zoo Flow** is a Zoo Code-native workflow control plane. It focuses
-  on mode-safe delegation, slash-command routing, path-safe skill
-  loading, and smoke-tested workflows. The center of gravity is the
+  on mode-safe delegation, slash-command routing, and path-safe skill
+  loading. The center of gravity is the
   *contract*: three modes, a routing matrix, a command protocol, and a
-  path-safety guarantee, validated by a small smoke-test suite.
+  path-safety guarantee.
 
 These projects are complementary more than competitive. You can run a
 broad skills library inside Zoo Flow's three-mode contract, and you can
@@ -40,9 +40,6 @@ plug Zoo Flow's commands into a richer harness if you have one.
 - A handful of always-on rules: path safety, command protocol, skills
   index, and a bucket-layout note.
 - A directory layout for slash commands and on-demand skills.
-- A short, fixed set of smoke tests that catch the failure modes that
-  matter in practice: routing drift, mode boundary violations, skill
-  path drift, slash command leakage.
 
 If you only adopt one piece of Zoo Flow, adopt the path-safety rule and
 the command protocol. Those two files alone fix most of the "agent

@@ -1,7 +1,7 @@
 {
   "name": "@fernado03/zoo-flow",
-  "version": "0.1.2",
-  "description": "Smoke-tested workflow control plane for Zoo Code.",
+  "version": "0.1.3",
+  "description": "Workflow control plane for Zoo Code.",
   "type": "module",
   "bin": {
     "zoo-flow": "bin/zoo-flow.js"
