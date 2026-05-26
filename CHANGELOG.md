@@ -6,6 +6,21 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-05-26
+
+### Changed
+- `templates/full/.roo/rules/03-manual-reply-protocol.md` — workflow
+  options now go in the suggestion labels (descriptive, no slash
+  commands or mode names) instead of the question body. The body
+  stays a single short prompt and must use real newlines, fixing a
+  symptom where literal `\n\n` rendered as text in chat. Typed
+  numeric replies remain valid.
+- `docs/troubleshooting.md` and `docs/smoke-tests.md` updated to
+  match: clicking a numbered suggestion is safe because labels no
+  longer carry slash or mode tokens.
+- `README.md` softened the "type the number manually" guidance for
+  the same reason.
+
 ## [0.1.1] - 2026-05-26
 
 ### Changed
@@ -82,6 +97,7 @@ First public npm release as `@fernado03/zoo-flow`.
   npm release. It was never published to a registry. The first
   publicly distributed `0.1.0` is this Zoo Flow release on npm.
 
-[Unreleased]: https://github.com/Fernado03/zoo-flow/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/Fernado03/zoo-flow/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.2
 [0.1.1]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.1
 [0.1.0]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.0
