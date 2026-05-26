@@ -149,6 +149,21 @@ run by hand inside Roo Code or Zoo Code to verify routing, mode boundaries,
 and skill loading. The first one — README tweak with no slash command —
 takes about a minute.
 
+When the orchestrator asks which workflow to use, **type the number
+manually**, for example `1`. Do not click suggestions that contain slash
+commands or mode names — clicking them can route incorrectly. See
+[`docs/troubleshooting.md`](docs/troubleshooting.md#clickable-suggestions-can-route-incorrectly).
+
+Example choice list:
+
+```text
+1. /tweak — small known implementation change
+2. /update-docs — documentation-focused change
+3. Hold — I will specify more detail
+
+Reply by typing only the number, e.g. 1.
+```
+
 Worked examples for the most common flows live in
 [`examples/`](examples/):
 

@@ -194,3 +194,35 @@ authorization for the orchestrator to launch a new subtask.
 
 If the chain happened despite the rules being in place, file an issue
 with the full transcript so the language can be tightened.
+
+## Clickable suggestions can route incorrectly
+
+Roo / Zoo may render answers as clickable suggestions. If a suggestion
+contains `/tweak`, `/fix`, `/prototype`, or a mode name, clicking it may
+trigger routing or mode behavior instead of acting like a normal typed
+reply.
+
+Use typed numbered replies instead.
+
+Good:
+
+```text
+1. /tweak — small implementation
+2. /fix — diagnose bug
+3. Hold
+
+Reply with the number, e.g. 1.
+```
+
+Avoid clickable suggestions like:
+
+```text
+Yes, route to /tweak via code-tweaker
+Use /fix
+Switch to code-tweaker
+/prototype
+```
+
+If suggestions are unavoidable, make them numeric only: `1`, `2`, `3`,
+or `Hold`. The short rule that enforces this lives in
+[`templates/full/.roo/rules/03-manual-reply-protocol.md`](../templates/full/.roo/rules/03-manual-reply-protocol.md).
