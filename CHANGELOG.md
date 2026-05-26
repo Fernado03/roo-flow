@@ -6,6 +6,21 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+- npm installer. Users can run
+  `npx @fernado03/zoo-flow@latest init` from any project to copy the
+  runtime template (`.roomodes` and `.roo/`) into the workspace. The
+  installer backs up existing config to `.zoo-flow-backup/<timestamp>/`
+  when run with `--force`. The CLI also exposes a `doctor` command to
+  validate either the bundled template (`--template-only`) or the
+  current project.
+- `bin/zoo-flow.js` — Node 18+ ES module CLI with `init` and `doctor`.
+- `package.json` declaring `@fernado03/zoo-flow` with the `zoo-flow`
+  bin and a `files` allowlist that ships only `bin/`, `templates/`,
+  `README.md`, and `LICENSE`. Repo-level `docs/`, `examples/`, and
+  `assets/` are intentionally excluded.
+- `docs/npm-publishing.md` documenting the publish workflow.
+
 ### Changed
 - Rebranded the project from Roo Flow to Zoo Flow. Zoo Code is now the
   primary target. The `.roo/` folder names, `.roomodes`,

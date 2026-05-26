@@ -136,25 +136,59 @@ files themselves live in
 
 ## Install
 
-Zoo Flow is a template, not a package. Copy the `templates/full/` contents
-into your target workspace.
+Run this from the root of the project where you use Zoo Code:
+
+```bash
+npx @fernado03/zoo-flow@latest init
+```
+
+If the project already has `.roomodes` or `.roo/`, Zoo Flow will stop
+instead of overwriting.
+
+To back up and overwrite existing config:
+
+```bash
+npx @fernado03/zoo-flow@latest init --force
+```
+
+Zoo Flow installs only the runtime template:
+
+- `.roomodes`
+- `.roo/`
+
+It does not copy this repository's `docs/` folder into your project.
+
+After install, reload VS Code:
+
+> Command Palette → **Developer: Reload Window**
+
+Then open Zoo Code, switch to `custom-orchestrator`, and run the smoke
+test:
+
+> change a harmless comment in `README`
+
+When choices appear, manually type the number, e.g. `1`. Do not click
+suggestions that contain slash commands or mode names. See
+[`docs/troubleshooting.md`](docs/troubleshooting.md#clickable-suggestions-can-route-incorrectly).
+
+## Manual install
+
+If you would rather copy the template by hand:
 
 ### macOS / Linux
 
 ```sh
-git clone https://github.com/Fernado03/zoo-flow.git
-cd /path/to/your/project
-cp -R /path/to/zoo-flow/templates/full/.roo .
-cp /path/to/zoo-flow/templates/full/.roomodes .
+git clone https://github.com/Fernado03/zoo-flow.git /tmp/zoo-flow
+cp /tmp/zoo-flow/templates/full/.roomodes .
+cp -R /tmp/zoo-flow/templates/full/.roo .
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/Fernado03/zoo-flow.git
-Set-Location C:\path\to\your\project
-Copy-Item -Recurse C:\path\to\zoo-flow\templates\full\.roo .
-Copy-Item C:\path\to\zoo-flow\templates\full\.roomodes .
+git clone https://github.com/Fernado03/zoo-flow.git C:\Temp\zoo-flow
+Copy-Item C:\Temp\zoo-flow\templates\full\.roomodes .
+Copy-Item -Recurse C:\Temp\zoo-flow\templates\full\.roo .
 ```
 
 After copying:

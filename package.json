@@ -1,0 +1,41 @@
+{
+  "name": "@fernado03/zoo-flow",
+  "version": "0.1.0",
+  "description": "Smoke-tested workflow control plane for Zoo Code.",
+  "type": "module",
+  "bin": {
+    "zoo-flow": "./bin/zoo-flow.js"
+  },
+  "files": [
+    "bin",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fernado03/zoo-flow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fernado03/zoo-flow/issues"
+  },
+  "homepage": "https://github.com/Fernado03/zoo-flow#readme",
+  "keywords": [
+    "zoo-code",
+    "zoo",
+    "ai-agents",
+    "coding-agents",
+    "workflow",
+    "slash-commands",
+    "custom-modes",
+    "agent-workflows"
+  ],
+  "scripts": {
+    "check": "node bin/zoo-flow.js doctor --template-only",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
