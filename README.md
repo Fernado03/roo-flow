@@ -175,6 +175,23 @@ When choices appear, manually type the number, e.g. `1`. Do not click
 suggestions that contain slash commands or mode names. See
 [`docs/troubleshooting.md`](docs/troubleshooting.md#clickable-suggestions-can-route-incorrectly).
 
+### Before using `/triage`, `/to-issues`, or `/to-prd`
+
+These commands need to know your issue tracker, triage labels, and
+domain doc layout. Switch to `code-tweaker` and run:
+
+```
+/setup-matt-pocock-skills
+```
+
+once per repo. It seeds an `## Agent skills` block in `AGENTS.md` or
+`CLAUDE.md` and a few files under `docs/agents/`. After that, the
+issue and PRD skills know how to read and write your project.
+
+You can skip this if you only plan to use `/tweak`, `/fix`,
+`/feature` (without issue slicing), `/explore`, `/refactor`,
+`/diagnose`, `/prototype`, `/update-docs`, or `/commit-and-document`.
+
 ## Manual install
 
 If you would rather copy the template by hand:
