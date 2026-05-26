@@ -12,7 +12,6 @@ templates/full/
 ├── .roomodes                       # minimal: slug, groups, short pointers
 └── .roo/
     ├── rules/                      # always-on, every mode, every turn
-    │   ├── 00-claude.md
     │   ├── 00-paths.md
     │   ├── 01-command-protocol.md
     │   ├── 02-skills-index.md
@@ -42,9 +41,9 @@ at the matching `.roo/rules-{modeSlug}/` folder. All detailed mode
 behavior lives in the rule files inside that folder. See
 [`mode-rules.md`](mode-rules.md) for the full layout rationale.
 
-> The legacy `.roorules-{modeSlug}` and `.clinerules-{modeSlug}`
-> single-file forms are deprecated. Roo Flow uses the
-> `.roo/rules-{modeSlug}/` directory form only.
+> Roo Flow uses the preferred `.roo/rules-{modeSlug}/` directory form
+> only. Legacy single-file fallbacks such as `.roorules-{modeSlug}` and
+> `.clinerules-{modeSlug}` are not used by this template.
 
 ## Modes
 

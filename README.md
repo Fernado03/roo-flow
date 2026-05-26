@@ -67,9 +67,9 @@ points at the matching `.roo/rules-{modeSlug}/` folder, where the actual
 behavior lives. See [`docs/mode-rules.md`](docs/mode-rules.md) for the
 layout and the rationale.
 
-> Roo Flow uses the `.roo/rules-{modeSlug}/` directory form. The legacy
-> `.roorules-{modeSlug}` and `.clinerules-{modeSlug}` single-file forms
-> are deprecated and not used.
+> Roo Flow uses the preferred `.roo/rules-{modeSlug}/` directory form
+> only. Legacy single-file fallbacks such as `.roorules-{modeSlug}` and
+> `.clinerules-{modeSlug}` are not used by this template.
 
 ## Commands
 

@@ -20,14 +20,21 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `.roo/rules-custom-orchestrator/` — new mode-rules folder for the
   orchestrator.
 - `docs/mode-rules.md` — documents the three-tier rule layout
-  (`rules/`, `rules-{modeSlug}/`, `skills/`) and the deprecation of
-  `.roorules-{modeSlug}` and `.clinerules-{modeSlug}` single-file forms.
+  (`rules/`, `rules-{modeSlug}/`, `skills/`) and notes that legacy
+  single-file fallbacks `.roorules-{modeSlug}` and
+  `.clinerules-{modeSlug}` are not used by this template.
 - `docs/out-of-scope/` — long policy notes moved out of
   `.roo/rules/out-of-scope/` so they no longer load on every turn.
+- `docs/skill-maintenance.md` — repo-maintenance policy moved out of
+  `.roo/rules/00-claude.md` so it no longer loads on every turn.
 
 ### Removed
 - `templates/full/.roo/rules/out-of-scope/` — relocated to
   `docs/out-of-scope/`.
+- `templates/full/.roo/rules/00-claude.md` — content relocated to
+  `docs/skill-maintenance.md`. Skill-bucket promotion rules are repo
+  maintenance, not runtime workflow behavior, so they should not be
+  auto-loaded every turn.
 - `templates/full/.roo/rules-code-tweaker/README.md` and
   `templates/full/.roo/rules-system-architect/README.md` — auto-loaded
   README files were costing tokens every turn. Their content is now in

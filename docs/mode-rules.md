@@ -6,9 +6,9 @@ Roo Flow uses three rule scopes, each loaded by Roo Code automatically:
 - `.roo/rules-{modeSlug}/` — loaded **only** when that mode is active.
 - `.roo/skills/` — **on-demand**, loaded by slash commands. Never auto-loaded.
 
-> **Do not use** the legacy `.roorules-{modeSlug}` or `.clinerules-{modeSlug}`
-> single-file forms. They are deprecated. Roo Flow targets the
-> `.roo/rules-{modeSlug}/` directory form exclusively.
+> Roo Flow uses the preferred `.roo/rules-{modeSlug}/` directory form
+> only. Legacy single-file fallbacks such as `.roorules-{modeSlug}` and
+> `.clinerules-{modeSlug}` are not used by this template.
 
 Mode-specific behavior lives in dedicated folders under `.roo/`:
 

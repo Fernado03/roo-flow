@@ -7,9 +7,10 @@ symptom you will actually see in chat or in tool output.
 > every mode are in `.roo/rules/`. Mode-specific behavior is in
 > `.roo/rules-{modeSlug}/` — `rules-custom-orchestrator/`,
 > `rules-system-architect/`, `rules-code-tweaker/`. `.roomodes` is
-> minimal and points at those folders. The legacy
-> `.roorules-{modeSlug}` and `.clinerules-{modeSlug}` single-file
-> forms are deprecated and not used. See [`mode-rules.md`](mode-rules.md)
+> minimal and points at those folders. Roo Flow uses the preferred
+> `.roo/rules-{modeSlug}/` directory form only; legacy single-file
+> fallbacks such as `.roorules-{modeSlug}` and `.clinerules-{modeSlug}`
+> are not used by this template. See [`mode-rules.md`](mode-rules.md)
 > for the full layout.
 
 ## `.roo/rules/skills/...` ENOENT
@@ -94,8 +95,10 @@ to running the command file but seems unsure.
 
 **Cause**
 
-`run_slash_command` is a tool the host UI may or may not expose. The
-command protocol expects the mode to fall back gracefully.
+`run_slash_command` is an experimental tool in Roo Code and must be
+enabled in Roo settings before it is available. When it is not enabled,
+or when the host UI does not expose it, the command protocol expects the
+mode to fall back gracefully.
 
 **Fix**
 
@@ -104,8 +107,10 @@ command protocol expects the mode to fall back gracefully.
 2. Step 3 of the protocol is the fallback: read
    `templates/full/.roo/commands/{command}.md` directly and execute it.
    If the mode does not do this, the rule is not in context.
-3. If `run_slash_command` is disabled by host policy, the file fallback
-   is the supported path. Document that for your team and move on.
+3. `run_slash_command` is experimental and must be enabled in Roo
+   settings. Roo Flow still works without it because its command
+   protocol falls back to reading `.roo/commands/{command}.md` directly.
+   That fallback is a first-class path, not a workaround.
 
 ## Architect trying to edit source
 
