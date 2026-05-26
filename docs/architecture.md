@@ -249,8 +249,9 @@ anything; it hands work off to the architect or the tweaker via
 `new_task`. The delegated message must include:
 
 - The slash command, including the leading slash.
-- The normalized command name (no slash).
 - The user context.
+- A proceed policy. One of: `Proceed automatically after audit if
+  clean`, `Ask user before implementation`, or `Stop and report only`.
 - A reminder to follow `.roo/rules/01-command-protocol.md`.
 - A reminder that skills live under `.roo/skills/...`.
 - A completion rule: finish with `attempt_completion` containing summary,
