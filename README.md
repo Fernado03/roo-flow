@@ -1,8 +1,8 @@
-# Roo Flow
+# Zoo Flow
 
-> **Smoke-tested workflow control plane for Roo Code and Zoo Code.**
+> **Smoke-tested workflow control plane for Zoo Code.**
 
-Roo Flow is a small, opinionated template that turns Roo Code and Zoo Code
+Zoo Flow is a small, opinionated template that turns [Zoo Code](https://docs.zoocode.dev/)
 into a predictable mode + command + skill orchestrator. It defines three
 modes, a fixed routing matrix, a command protocol, and path-safety rules.
 Drop it into a workspace and your AI assistant stops freelancing.
@@ -13,7 +13,7 @@ Out of the box, AI coding assistants tend to skip planning when you want
 planning, plan when you want a tweak, and quietly invent file paths that do
 not exist. Adding a pile of skills makes it worse.
 
-Roo Flow takes a different bet:
+Zoo Flow takes a different bet:
 
 - A **router mode** chooses the workflow.
 - An **architect mode** plans, diagnoses, and triages — and cannot edit
@@ -27,6 +27,18 @@ Roo Flow takes a different bet:
 
 Everything else is optional. The skills bundled in the template are a
 sensible starting point, not the point of the project.
+
+## Why are the folders still named `.roo/`?
+
+Zoo Code keeps compatibility with Roo-style workspace paths. Project
+modes still live in `.roomodes`, project slash commands still live in
+`.roo/commands/`, and mode-specific rules still live in
+`.roo/rules-{mode-slug}/`.
+
+Zoo Flow uses Zoo Code as the primary target, but keeps those `.roo/`
+paths because they are the official Zoo Code configuration paths. See
+[the Zoo Code docs](https://docs.zoocode.dev/) for the canonical
+reference.
 
 ## Core workflow
 
@@ -67,7 +79,7 @@ points at the matching `.roo/rules-{modeSlug}/` folder, where the actual
 behavior lives. See [`docs/mode-rules.md`](docs/mode-rules.md) for the
 layout and the rationale.
 
-> Roo Flow uses the preferred `.roo/rules-{modeSlug}/` directory form
+> Zoo Flow uses the preferred `.roo/rules-{modeSlug}/` directory form
 > only. Legacy single-file fallbacks such as `.roorules-{modeSlug}` and
 > `.clinerules-{modeSlug}` are not used by this template.
 
@@ -118,30 +130,30 @@ files themselves live in
 
 ## Install
 
-Roo Flow is a template, not a package. Copy the `templates/full/` contents
+Zoo Flow is a template, not a package. Copy the `templates/full/` contents
 into your target workspace.
 
 ### macOS / Linux
 
 ```sh
-git clone https://github.com/Fernado03/roo-flow.git
+git clone https://github.com/Fernado03/zoo-flow.git
 cd /path/to/your/project
-cp -R /path/to/roo-flow/templates/full/.roo .
-cp /path/to/roo-flow/templates/full/.roomodes .
+cp -R /path/to/zoo-flow/templates/full/.roo .
+cp /path/to/zoo-flow/templates/full/.roomodes .
 ```
 
 ### Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/Fernado03/roo-flow.git
+git clone https://github.com/Fernado03/zoo-flow.git
 Set-Location C:\path\to\your\project
-Copy-Item -Recurse C:\path\to\roo-flow\templates\full\.roo .
-Copy-Item C:\path\to\roo-flow\templates\full\.roomodes .
+Copy-Item -Recurse C:\path\to\zoo-flow\templates\full\.roo .
+Copy-Item C:\path\to\zoo-flow\templates\full\.roomodes .
 ```
 
 After copying:
 
-1. Open the project in an editor running Roo Code or Zoo Code.
+1. Open the project in an editor running Zoo Code.
 2. Confirm the three custom modes appear: `🪃 Custom Orchestrator`,
    `🏗️ System Architect`, `⚡ Code Tweaker`.
 3. Switch to `custom-orchestrator` and start a new task.
@@ -153,7 +165,7 @@ If a slash command does not run, see
 
 The repo ships a fixed set of smoke tests in
 [`docs/smoke-tests.md`](docs/smoke-tests.md). They are short scripts you can
-run by hand inside Roo Code or Zoo Code to verify routing, mode boundaries,
+run by hand inside Zoo Code to verify routing, mode boundaries,
 and skill loading. The first one — README tweak with no slash command —
 takes about a minute.
 
@@ -194,16 +206,25 @@ hand-off, and the tweaker running a slash command will land in
 - A short demo video in `assets/`.
 - ADRs covering the three-mode split, the routing matrix, and the
   path-safety choice.
-- Guidance on integrating Roo Flow alongside other workflow tools.
+- Guidance on integrating Zoo Flow alongside other workflow tools.
 
 ## How this is different
 
-Roo Flow is not a methodology and it is not a giant skills pack. It is a
-**Roo / Zoo-native control plane**: a thin layer that turns three modes,
+Zoo Flow is not a methodology and it is not a giant skills pack. It is a
+**Zoo-native control plane**: a thin layer that turns three modes,
 a routing matrix, and a path-safety contract into a predictable workflow.
 
 For a longer comparison with adjacent projects, see
 [`docs/comparison.md`](docs/comparison.md).
+
+## Migration note
+
+Zoo Flow started as a Roo Flow template and was renamed for Zoo Code.
+The `.roo/` folder names are intentionally preserved because Zoo Code
+still uses those paths for project modes, commands, rules, and skills.
+If you are migrating from a Roo Code workspace, copying the same
+`.roo/` directory and `.roomodes` file into a Zoo Code workspace is
+expected to keep working.
 
 ## Inspiration
 
@@ -211,8 +232,8 @@ This project was inspired by Matt Pocock's agent-skills workflow ideas
 and his emphasis on small, composable, task-focused skills for coding
 agents.
 
-Roo Flow is not affiliated with, endorsed by, or maintained by Matt
-Pocock. It is an independent Roo / Zoo Code workflow-control template
+Zoo Flow is not affiliated with, endorsed by, or maintained by Matt
+Pocock. It is an independent Zoo Code workflow-control template
 focused on custom modes, delegation, command routing, and smoke-tested
 agent workflows.
 

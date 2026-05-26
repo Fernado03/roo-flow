@@ -1,6 +1,6 @@
 # Architecture
 
-Roo Flow ships three custom modes, a fixed routing matrix, a small set of
+Zoo Flow ships three custom modes, a fixed routing matrix, a small set of
 always-on rules, and a directory layout for slash commands and on-demand
 skills. This document explains what each piece does and why it is shaped
 the way it is.
@@ -41,7 +41,7 @@ at the matching `.roo/rules-{modeSlug}/` folder. All detailed mode
 behavior lives in the rule files inside that folder. See
 [`mode-rules.md`](mode-rules.md) for the full layout rationale.
 
-> Roo Flow uses the preferred `.roo/rules-{modeSlug}/` directory form
+> Zoo Flow uses the preferred `.roo/rules-{modeSlug}/` directory form
 > only. Legacy single-file fallbacks such as `.roorules-{modeSlug}` and
 > `.clinerules-{modeSlug}` are not used by this template.
 

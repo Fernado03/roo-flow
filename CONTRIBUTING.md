@@ -1,12 +1,12 @@
-# Contributing to Roo Flow
+# Contributing to Zoo Flow
 
-Thanks for your interest. Roo Flow is a workflow control plane for Roo Code
-and Zoo Code. Contributions that keep it small, validated, and predictable
-are very welcome.
+Thanks for your interest. Zoo Flow is a workflow control plane for
+[Zoo Code](https://docs.zoocode.dev/). Contributions that keep it
+small, validated, and predictable are very welcome.
 
 ## Ground rules
 
-- Keep the template lean. Roo Flow is not a giant skills pack; it is a
+- Keep the template lean. Zoo Flow is not a giant skills pack; it is a
   control plane. New skills are accepted only when they pull their weight
   inside an existing command flow.
 - Preserve path safety. Skills always live under
@@ -17,6 +17,9 @@ are very welcome.
 - Smoke-test before opening a PR. Run the checks in
   [`docs/smoke-tests.md`](docs/smoke-tests.md) and note any failures.
 - Don't commit secrets, local journals, `.env`, or project-private notes.
+- Do not rename the `.roo/` paths. `.roomodes`, `.roo/commands/`, and
+  `.roo/rules-{mode-slug}/` are the official Zoo Code configuration
+  paths and stay unchanged.
 
 ## What kinds of changes are easy to land
 

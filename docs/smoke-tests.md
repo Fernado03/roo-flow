@@ -2,7 +2,7 @@
 
 Run these by hand after any change to `.roomodes`, the rules, the
 commands, or the bundled skills. Each test is a short script you can paste
-into a Roo Code or Zoo Code chat. Each one has a clear pass condition.
+into a Zoo Code chat. Each one has a clear pass condition.
 
 The whole set takes about 10 minutes.
 
@@ -127,7 +127,7 @@ loading skills from `.roo/rules/skills/...`. This test catches it.
 **Script**
 
 ```
-/tweak Add a TODO comment to README.md that says "// roo-flow smoke test".
+/tweak Add a TODO comment to README.md that says "// zoo-flow smoke test".
 ```
 
 **Pass**

@@ -1,12 +1,16 @@
 # Changelog
 
-All notable changes to Roo Flow are documented here. The format follows
+All notable changes to Zoo Flow are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this project
 aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
 ### Changed
+- Rebranded the project from Roo Flow to Zoo Flow. Zoo Code is now the
+  primary target. The `.roo/` folder names, `.roomodes`,
+  `.roo/commands/`, and `.roo/rules-{mode-slug}/` paths are kept
+  unchanged because they are the official Zoo Code configuration paths.
 - `.roomodes` is now minimal. Each mode's `customInstructions` points at
   the matching `.roo/rules-{modeSlug}/` folder for detailed behavior.
 - Mode behavior moved out of `.roomodes` into mode-rule files:
@@ -42,6 +46,9 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.1.0] - 2026-05-26
 
+> Released under the original project name **Roo Flow**. Kept here for
+> historical accuracy. The repository was later renamed to Zoo Flow.
+
 ### Added
 - Initial public release of the Roo Flow template.
 - Three custom modes wired into `.roomodes`:
@@ -65,5 +72,5 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Worked examples: `tweak-smoke-test.md`, `fix-flow.md`, `feature-flow.md`.
 - MIT license, contributor guide, security policy, and `.gitignore`.
 
-[Unreleased]: https://github.com/Fernado03/roo-flow/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Fernado03/roo-flow/releases/tag/v0.1.0
+[Unreleased]: https://github.com/Fernado03/zoo-flow/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.0

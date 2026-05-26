@@ -1,9 +1,9 @@
 # Security policy
 
-Roo Flow is a configuration template for Roo Code and Zoo Code. It does not
-ship runtime services, but it does shape how an AI assistant behaves inside
-your workspace. Treat the modes, rules, and commands as part of your
-security surface.
+Zoo Flow is a configuration template for [Zoo Code](https://docs.zoocode.dev/).
+It does not ship runtime services, but it does shape how an AI assistant
+behaves inside your workspace. Treat the modes, rules, and commands as
+part of your security surface.
 
 ## Reporting a vulnerability
 
@@ -28,7 +28,7 @@ coordinate disclosure with you in the advisory.
 
 ## What is out of scope
 
-- Vulnerabilities in Roo Code, Zoo Code, the underlying model providers, or
+- Vulnerabilities in Zoo Code, the underlying model providers, or
   third-party tools the template references. Report those upstream.
 - Issues that depend on a user manually disabling path-safety rules or
   removing the orchestrator's routing matrix.

@@ -7,7 +7,7 @@ symptom you will actually see in chat or in tool output.
 > every mode are in `.roo/rules/`. Mode-specific behavior is in
 > `.roo/rules-{modeSlug}/` — `rules-custom-orchestrator/`,
 > `rules-system-architect/`, `rules-code-tweaker/`. `.roomodes` is
-> minimal and points at those folders. Roo Flow uses the preferred
+> minimal and points at those folders. Zoo Flow uses the preferred
 > `.roo/rules-{modeSlug}/` directory form only; legacy single-file
 > fallbacks such as `.roorules-{modeSlug}` and `.clinerules-{modeSlug}`
 > are not used by this template. See [`mode-rules.md`](mode-rules.md)
@@ -79,7 +79,7 @@ The orchestrator's tool groups in `.roomodes` are `[]` — that is correct
 1. Confirm `templates/full/.roomodes` has not been edited to add
    read/edit/command/mcp groups for `custom-orchestrator`. The empty
    groups list is intentional.
-2. In Roo Code or Zoo Code settings, confirm subtasks (sometimes called
+2. In Zoo Code settings, confirm subtasks (sometimes called
    "delegated tasks" or "Boomerang tasks") are enabled.
 3. If subtasks are disabled in the host, the orchestrator's correct
    behavior is to stop and report. That is what rule 4 of its
@@ -95,8 +95,8 @@ to running the command file but seems unsure.
 
 **Cause**
 
-`run_slash_command` is an experimental tool in Roo Code and must be
-enabled in Roo settings before it is available. When it is not enabled,
+`run_slash_command` is an experimental tool in Zoo Code and must be
+enabled in settings before it is available. When it is not enabled,
 or when the host UI does not expose it, the command protocol expects the
 mode to fall back gracefully.
 
@@ -107,8 +107,8 @@ mode to fall back gracefully.
 2. Step 3 of the protocol is the fallback: read
    `templates/full/.roo/commands/{command}.md` directly and execute it.
    If the mode does not do this, the rule is not in context.
-3. `run_slash_command` is experimental and must be enabled in Roo
-   settings. Roo Flow still works without it because its command
+3. `run_slash_command` is experimental and must be enabled in Zoo Code
+   settings. Zoo Flow still works without it because its command
    protocol falls back to reading `.roo/commands/{command}.md` directly.
    That fallback is a first-class path, not a workaround.
 
@@ -211,7 +211,7 @@ with the full transcript so the language can be tightened.
 
 ## Clickable suggestions can route incorrectly
 
-Roo / Zoo may render answers as clickable suggestions. If a suggestion
+Zoo Code may render answers as clickable suggestions. If a suggestion
 contains `/tweak`, `/fix`, `/prototype`, or a mode name, clicking it may
 trigger routing or mode behavior instead of acting like a normal typed
 reply.

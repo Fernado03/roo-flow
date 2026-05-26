@@ -1,6 +1,6 @@
 # Skills Index
 
-Rules under `.roo/rules/` are always loaded by Roo Code on every turn (workspace-wide, all modes).
+Rules under `.roo/rules/` are always loaded by Zoo Code on every turn (workspace-wide, all modes).
 
 On-demand skills are different: they live under `.roo/skills/` and are loaded by commands. Path safety: see `.roo/rules/00-paths.md`.
 

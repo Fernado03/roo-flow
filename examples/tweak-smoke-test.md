@@ -13,7 +13,7 @@ routing, command protocol, and path safety all work.
 
 - Copy `templates/full/.roo` and `templates/full/.roomodes` into your
   target workspace. (See [`README.md`](../README.md#install).)
-- Open the workspace in an editor running Roo Code or Zoo Code.
+- Open the workspace in an editor running Zoo Code.
 - Make sure `README.md` exists at the workspace root. Any existing
   README is fine.
 - Switch to `🪃 Custom Orchestrator`.

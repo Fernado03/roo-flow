@@ -1,12 +1,12 @@
 # Mode-specific rules
 
-Roo Flow uses three rule scopes, each loaded by Roo Code automatically:
+Zoo Flow uses three rule scopes, each loaded by Zoo Code automatically:
 
 - `.roo/rules/` — loaded for **every** mode, every turn.
 - `.roo/rules-{modeSlug}/` — loaded **only** when that mode is active.
 - `.roo/skills/` — **on-demand**, loaded by slash commands. Never auto-loaded.
 
-> Roo Flow uses the preferred `.roo/rules-{modeSlug}/` directory form
+> Zoo Flow uses the preferred `.roo/rules-{modeSlug}/` directory form
 > only. Legacy single-file fallbacks such as `.roorules-{modeSlug}` and
 > `.clinerules-{modeSlug}` are not used by this template.
 

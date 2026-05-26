@@ -1,13 +1,13 @@
 # Philosophy
 
-Roo Flow is built around a small number of opinions. They are listed here so
+Zoo Flow is built around a small number of opinions. They are listed here so
 you can decide whether the template is a good fit before you adopt it.
 
 ## 1. The router should not write code
 
 Most failure modes in agentic coding come from a single agent trying to do
 three jobs at once: deciding what to do, planning how to do it, and doing
-it. Roo Flow splits those into three modes and refuses to collapse them.
+it. Zoo Flow splits those into three modes and refuses to collapse them.
 
 - `custom-orchestrator` decides **what** to do, by mapping a request to a
   command from a fixed routing matrix.
@@ -46,14 +46,14 @@ benefit is no more `ENOENT` rabbit holes.
 
 ## 4. Same-window switches for tight loops, `new_task` for clean boundaries
 
-There are two delegation primitives in Roo Code and Zoo Code:
+There are two delegation primitives in Zoo Code:
 
 - `switch_mode` keeps the same task window and hands the keyboard to a
   different mode. Cheap. Good for `/fix` going architect → tweaker → architect.
 - `new_task` opens a delegated subtask with its own window. Expensive. Good
   for orchestrator handing real work to architect or tweaker.
 
-Roo Flow uses both, deliberately. The orchestrator only ever uses
+Zoo Flow uses both, deliberately. The orchestrator only ever uses
 `new_task`. Modes only ever use `switch_mode`. They never cross.
 
 ## 5. HITL hard stops are features

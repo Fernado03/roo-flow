@@ -1,6 +1,6 @@
 # Example: `/feature` flow
 
-The `/feature` chain is the longest one Roo Flow ships. It exists
+The `/feature` chain is the longest one Zoo Flow ships. It exists
 specifically because the most expensive mistakes happen when an agent
 implements a feature it has not properly sharpened. The chain forces
 the slow steps before any code is written.
