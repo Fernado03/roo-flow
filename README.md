@@ -158,6 +158,10 @@ Zoo Flow installs only the runtime template:
 
 It does not copy this repository's `docs/` folder into your project.
 
+> Zoo Flow overwrites `.roomodes` and `.roo/` only when you pass
+> `--force` or run `update`. It always creates a backup in
+> `.zoo-flow-backup/<timestamp>/`.
+
 After install, reload VS Code:
 
 > Command Palette → **Developer: Reload Window**
@@ -170,6 +174,18 @@ test:
 When choices appear, manually type the number, e.g. `1`. Do not click
 suggestions that contain slash commands or mode names. See
 [`docs/troubleshooting.md`](docs/troubleshooting.md#clickable-suggestions-can-route-incorrectly).
+
+## Quick start
+
+```bash
+npx @fernado03/zoo-flow@latest init
+```
+
+Then reload VS Code and run this in `custom-orchestrator`:
+
+> change a harmless comment in `README`
+
+When choices appear, type the number manually, for example `1`.
 
 ## Manual install
 
@@ -200,6 +216,34 @@ After copying:
 
 If a slash command does not run, see
 [`docs/troubleshooting.md`](docs/troubleshooting.md).
+
+## Update Zoo Flow
+
+Run this from your project root:
+
+```bash
+npx @fernado03/zoo-flow@latest update
+```
+
+Zoo Flow backs up your current runtime config before replacing it:
+
+- `.roomodes`
+- `.roo/`
+
+Backups are stored in:
+
+```text
+.zoo-flow-backup/<timestamp>/
+```
+
+Preview without changing files:
+
+```bash
+npx @fernado03/zoo-flow@latest update --dry-run
+```
+
+Zoo Flow does not copy this repository's `docs/` folder into your
+project.
 
 ## Smoke tests
 

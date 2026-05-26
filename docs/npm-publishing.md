@@ -36,6 +36,23 @@ If the project already has `.roomodes` or `.roo/`, test:
 npx @fernado03/zoo-flow@latest init --force
 ```
 
+## Test update after publish
+
+From a temporary directory:
+
+```bash
+tmpdir="$(mktemp -d)"
+cd "$tmpdir"
+
+npx @fernado03/zoo-flow@latest init
+npx @fernado03/zoo-flow@latest update --dry-run
+npx @fernado03/zoo-flow@latest update
+
+test -f .roomodes
+test -d .roo
+test -d .zoo-flow-backup
+```
+
 ## What ships in the package
 
 The `files` field in `package.json` controls what npm publishes:

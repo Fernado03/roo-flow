@@ -17,14 +17,19 @@ Zoo Flow
 Usage:
   npx @fernado03/zoo-flow@latest init
   npx @fernado03/zoo-flow@latest init --force
+  npx @fernado03/zoo-flow@latest update
+  npx @fernado03/zoo-flow@latest update --dry-run
+  npx @fernado03/zoo-flow@latest update --force
   npx @fernado03/zoo-flow@latest doctor --template-only
 
 Commands:
   init              Install Zoo Flow into the current project
+  update            Back up current config and copy the latest template
   doctor            Validate the bundled template
 
 Options:
   --force           Overwrite existing .roomodes and .roo after backup
+  --dry-run         Print what update would do without changing files
   --template-only   Validate this package's template instead of current project
 `;
 
@@ -265,6 +270,77 @@ function doctor() {
   console.log(`Zoo Flow doctor passed: ${rootToCheck}`);
 }
 
+function update() {
+  const args = new Set(process.argv.slice(3));
+  const dryRun = args.has("--dry-run");
+  const projectRoot = process.cwd();
+
+  const sourceRoomodes = path.join(templateRoot, ".roomodes");
+  const sourceRoo = path.join(templateRoot, ".roo");
+
+  if (!pathExists(sourceRoomodes) || !pathExists(sourceRoo)) {
+    exitWithError("Bundled template is missing templates/full/.roomodes or templates/full/.roo/");
+  }
+
+  const targetRoomodes = path.join(projectRoot, ".roomodes");
+  const targetRoo = path.join(projectRoot, ".roo");
+  const hasRoomodes = pathExists(targetRoomodes);
+  const hasRoo = pathExists(targetRoo);
+
+  if (!hasRoomodes && !hasRoo) {
+    console.log(`
+Zoo Flow is not installed in this project yet.
+
+Run:
+  npx @fernado03/zoo-flow@latest init
+`);
+    process.exit(0);
+  }
+
+  if (dryRun) {
+    console.log(`
+Zoo Flow update dry run.
+
+Would back up:
+${hasRoomodes ? "  - .roomodes\n" : ""}${hasRoo ? "  - .roo/\n" : ""}
+Would replace with latest template:
+  - .roomodes
+  - .roo/
+
+Run this to update:
+  npx @fernado03/zoo-flow@latest update
+`);
+    process.exit(0);
+  }
+
+  const backupDir = path.join(projectRoot, ".zoo-flow-backup", makeTimestamp());
+  fs.mkdirSync(backupDir, { recursive: true });
+
+  let didBackup = false;
+  didBackup = backupIfExists(projectRoot, backupDir, ".roomodes") || didBackup;
+  didBackup = backupIfExists(projectRoot, backupDir, ".roo") || didBackup;
+
+  removeRecursive(targetRoomodes);
+  removeRecursive(targetRoo);
+
+  copyRecursive(sourceRoomodes, targetRoomodes);
+  copyRecursive(sourceRoo, targetRoo);
+
+  console.log(`
+Zoo Flow updated.
+
+Replaced:
+  - .roomodes
+  - .roo/
+
+${didBackup ? `Backup:\n  ${backupDir}\n\nTo restore the previous config:\n  rm -rf .roomodes .roo\n  cp -R ${backupDir}/. .\n` : ""}
+Next:
+  1. Reload VS Code
+  2. Open Zoo Code
+  3. Confirm the three custom modes still appear
+`);
+}
+
 if (!command || command === "--help" || command === "-h") {
   console.log(HELP);
   process.exit(0);
@@ -272,6 +348,8 @@ if (!command || command === "--help" || command === "-h") {
 
 if (command === "init") {
   install();
+} else if (command === "update") {
+  update();
 } else if (command === "doctor") {
   doctor();
 } else {

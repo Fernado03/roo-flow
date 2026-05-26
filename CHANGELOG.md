@@ -7,6 +7,13 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
 ### Added
+- `update` CLI command. Users can run
+  `npx @fernado03/zoo-flow@latest update` from any project that already
+  has Zoo Flow installed. The command backs up the current `.roomodes`
+  and `.roo/` to `.zoo-flow-backup/<timestamp>/` and replaces them with
+  the latest bundled template. `--dry-run` previews the operation
+  without writing anything. If Zoo Flow is not installed yet, the
+  command tells the user to run `init` instead.
 - npm installer. Users can run
   `npx @fernado03/zoo-flow@latest init` from any project to copy the
   runtime template (`.roomodes` and `.roo/`) into the workspace. The
@@ -14,7 +21,8 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   when run with `--force`. The CLI also exposes a `doctor` command to
   validate either the bundled template (`--template-only`) or the
   current project.
-- `bin/zoo-flow.js` — Node 18+ ES module CLI with `init` and `doctor`.
+- `bin/zoo-flow.js` — Node 18+ ES module CLI with `init`, `update`, and
+  `doctor`.
 - `package.json` declaring `@fernado03/zoo-flow` with the `zoo-flow`
   bin and a `files` allowlist that ships only `bin/`, `templates/`,
   `README.md`, and `LICENSE`. Repo-level `docs/`, `examples/`, and
