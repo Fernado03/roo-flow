@@ -1,0 +1,76 @@
+# Contributing to Roo Flow
+
+Thanks for your interest. Roo Flow is a workflow control plane for Roo Code
+and Zoo Code. Contributions that keep it small, validated, and predictable
+are very welcome.
+
+## Ground rules
+
+- Keep the template lean. Roo Flow is not a giant skills pack; it is a
+  control plane. New skills are accepted only when they pull their weight
+  inside an existing command flow.
+- Preserve path safety. Skills always live under
+  `templates/full/.roo/skills/<bucket>/<skill>/SKILL.md`. Never reference
+  skills under `.roo/rules/` or relative to a command file. See
+  [`docs/architecture.md`](docs/architecture.md) and
+  [`templates/full/.roo/rules/00-paths.md`](templates/full/.roo/rules/00-paths.md).
+- Smoke-test before opening a PR. Run the checks in
+  [`docs/smoke-tests.md`](docs/smoke-tests.md) and note any failures.
+- Don't commit secrets, local journals, `.env`, or project-private notes.
+
+## What kinds of changes are easy to land
+
+- Documentation and README clarifications.
+- New slash commands that follow the protocol in
+  [`templates/full/.roo/rules/01-command-protocol.md`](templates/full/.roo/rules/01-command-protocol.md)
+  and route through the existing modes.
+- New skills under an existing bucket, with a one-line entry added to
+  [`templates/full/.roo/rules/02-skills-index.md`](templates/full/.roo/rules/02-skills-index.md)
+  and the bucket `README.md`.
+- Smoke-test additions covering real failure modes.
+
+## What needs a discussion first
+
+- New custom modes. The current three modes are deliberate; adding a fourth
+  changes the routing matrix and orchestrator behavior.
+- Changes to the orchestrator's `Routing Matrix` in `.roomodes`.
+- Changes to path-safety rules.
+
+Open an issue to talk through these before sending a PR.
+
+## Local checks
+
+Before opening a pull request:
+
+1. Validate `.roomodes` JSON.
+   ```sh
+   python -m json.tool templates/full/.roomodes >/dev/null
+   ```
+2. Confirm no skill paths leak into `rules/skills/`.
+   ```sh
+   grep -RIn --exclude-dir=.git -E '\.roo/rules/skills|rules/skills' templates/full || true
+   ```
+   The only legitimate match is the path-safety rule that explicitly forbids
+   that pattern.
+3. Confirm no obvious secrets are present.
+   ```sh
+   grep -RIn --exclude-dir=.git -E 'OPENAI_API_KEY|ANTHROPIC_API_KEY|apiKey|password|secret|token' .
+   ```
+   Hits inside skill or command guidance about *redacting* secrets are fine;
+   actual values are not.
+4. Run the smoke tests in [`docs/smoke-tests.md`](docs/smoke-tests.md).
+
+## Pull request checklist
+
+- [ ] `.roomodes` is valid JSON.
+- [ ] No new skill paths under `.roo/rules/`.
+- [ ] No secrets, no local journals, no `.env`.
+- [ ] Smoke tests pass for the modes and commands you touched.
+- [ ] `CHANGELOG.md` updated under `## [Unreleased]`.
+- [ ] If you added a skill, it appears in the bucket `README.md` and in
+      `02-skills-index.md`.
+
+## Code of conduct
+
+Be respectful. Disagree on substance. Critique work, not people. We will
+add a formal Code of Conduct file as the project grows.
