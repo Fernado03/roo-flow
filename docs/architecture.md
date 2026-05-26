@@ -155,6 +155,26 @@ A command must not:
 - Bypass the orchestrator when handing the human a choice.
 - Auto-launch a follow-up command from a subtask summary.
 
+### Core vs. helper commands
+
+The orchestrator's **routing matrix** intentionally only routes a small
+set of core workflow commands:
+
+- `/tweak`, `/tdd`, `/update-docs`, `/commit-and-document`, `/prototype`
+  → `code-tweaker`
+- `/fix`, `/feature`, `/refactor`, `/explore`, `/triage`
+  → `system-architect`
+
+Every other command in `templates/full/.roo/commands/` is a **helper**.
+Helpers are real, working commands. They are run directly inside the
+appropriate mode rather than delegated by the orchestrator. This keeps
+the orchestrator's routing matrix small and predictable, while leaving
+the broader command library available when you want it.
+
+If a helper command starts being used often enough to deserve
+delegation, promote it to the routing matrix in `.roomodes` and add it
+to the routed table in [`README.md`](../README.md#commands).
+
 ## Skills
 
 Skills live under `templates/full/.roo/skills/`. Each skill is a folder

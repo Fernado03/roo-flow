@@ -65,6 +65,15 @@ Modes are defined in [`templates/full/.roomodes`](templates/full/.roomodes).
 
 ## Commands
 
+The orchestrator's routing matrix only routes the **core workflow
+commands**. Helper commands are still part of the template — you can run
+them directly in `system-architect` or `code-tweaker` when you need
+them. They are intentionally outside the routing matrix so the
+orchestrator stays focused on the workflows that benefit from
+delegation.
+
+### Core commands (routed by the orchestrator)
+
 | Command                  | Routes to            | What it does                                                |
 | ------------------------ | -------------------- | ----------------------------------------------------------- |
 | `/tweak`                 | `code-tweaker`       | Direct implementation of small, known changes.              |
@@ -77,17 +86,22 @@ Modes are defined in [`templates/full/.roomodes`](templates/full/.roomodes).
 | `/refactor`              | `system-architect`   | Plan and stage architecture changes.                        |
 | `/explore`               | `system-architect`   | Map unfamiliar code before touching it.                     |
 | `/triage`                | `system-architect`   | Clean and prioritize an issue queue.                        |
-| `/diagnose`              | `system-architect`   | Standalone diagnosis loop with HITL checkpoints.            |
-| `/grill-with-docs`       | `system-architect`   | Sharpen a feature spec via QA against current docs.         |
-| `/improve-codebase-architecture` | `system-architect` | Generate a deep architecture review report.            |
-| `/to-prd`                | `system-architect`   | Turn sharpened context into a PRD.                          |
-| `/to-issues`             | `system-architect`   | Slice a PRD into issues.                                    |
-| `/handoff`               | either               | Produce a clean handoff package for another agent or human. |
-| `/grill-me`              | either               | Adversarial Q&A to sharpen an idea.                         |
-| `/caveman`               | either               | Ultra-compressed communication mode.                        |
-| `/zoom-out`              | `system-architect`   | Pull back to architectural altitude.                        |
-| `/write-a-skill`         | `code-tweaker`       | Author a new skill following the bucket layout.             |
-| `/setup-matt-pocock-skills` | `code-tweaker`    | One-shot setup helper for the bundled skill set.            |
+
+### Helper commands (run directly when needed)
+
+| Command                          | Best run in          | What it does                                                |
+| -------------------------------- | -------------------- | ----------------------------------------------------------- |
+| `/diagnose`                      | `system-architect`   | Standalone diagnosis loop with HITL checkpoints.            |
+| `/grill-with-docs`               | `system-architect`   | Sharpen a feature spec via QA against current docs.         |
+| `/improve-codebase-architecture` | `system-architect`   | Generate a deep architecture review report.                 |
+| `/to-prd`                        | `system-architect`   | Turn sharpened context into a PRD.                          |
+| `/to-issues`                     | `system-architect`   | Slice a PRD into issues.                                    |
+| `/zoom-out`                      | `system-architect`   | Pull back to architectural altitude.                        |
+| `/handoff`                       | either               | Produce a clean handoff package for another agent or human. |
+| `/grill-me`                      | either               | Adversarial Q&A to sharpen an idea.                         |
+| `/caveman`                       | either               | Ultra-compressed communication mode.                        |
+| `/write-a-skill`                 | `code-tweaker`       | Author a new skill following the bucket layout.             |
+| `/setup-matt-pocock-skills`      | `code-tweaker`       | One-shot setup helper for the bundled skill set.            |
 
 The full routing matrix lives in the orchestrator's `customInstructions`
 inside [`templates/full/.roomodes`](templates/full/.roomodes). The command
