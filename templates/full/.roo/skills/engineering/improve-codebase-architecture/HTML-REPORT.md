@@ -84,5 +84,4 @@ Include candidate name, one-sentence reason, anchor link.
 
 ## Vocabulary
 
-Use: module, interface, implementation, depth, deep, shallow, seam, adapter, leverage, locality.
-Avoid: component, service, unit, API, signature, boundary, layer, wrapper.
+See `LANGUAGE.md`.

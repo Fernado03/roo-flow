@@ -6,6 +6,77 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+- `templates/full/.roo/skills/engineering/commit-and-document/SKILL.md`
+  — extracted the deterministic 7-step commit + journal procedure
+  out of the command file so the command stays a thin pointer.
+- `templates/full/.roo/skills/engineering/update-docs/SKILL.md` —
+  extracted the "identify → read → verify → surgical edits →
+  freshness → sanity → recommend next" procedure from the command
+  file for the same reason.
+- `templates/full/.roo/rules/02-three-failure-rule.md` — single
+  canonical home for the "stop and surface after 3 failed attempts"
+  rule. Applies globally across TDD, diagnosis, architecture probes,
+  and any repeating loop. Replaces four near-duplicate copies that
+  lived inside individual skills and mode rules.
+- `Companion docs` section in
+  `templates/full/.roo/skills/engineering/grill-with-docs/CONTEXT-FORMAT.md`
+  defining the canonical names `FLOW.md`, `APP_MAP.md`,
+  `ARCHITECTURE.md`, and `README.md`. `commands/explore.md` and
+  `commands/update-docs.md` had been referencing these names without
+  a definition; the names are now backed.
+- `## References` section in
+  `templates/full/.roo/skills/engineering/tdd/SKILL.md` linking the
+  satellite docs (`tests.md`, `mocking.md`, `interface-design.md`,
+  `deep-modules.md`, `refactoring.md`) that had been orphaned.
+
+### Changed
+- `templates/full/.roo/commands/commit-and-document.md` shrunk from
+  ~200 lines to ~12. The command now states intent in one paragraph
+  and points at the new skill. Same `mode: code-tweaker` frontmatter
+  and `$ARGUMENTS` placeholder.
+- `templates/full/.roo/commands/update-docs.md` shrunk from ~120
+  lines to ~21 the same way. Keeps the "Do NOT use this for…"
+  disambiguation and the prompt-when-empty rule; everything
+  procedural moved to the skill.
+- `templates/full/.roo/commands/feature.md` step 2 (PROTOTYPE) now
+  points at `.roo/rules-system-architect/01-feature-prototype.md`
+  instead of restating the architect→tweaker handoff. The rule file
+  is the single source of truth for the handoff procedure.
+- `templates/full/.roo/rules/03-manual-reply-protocol.md` rewritten
+  to its final token-efficient form (~65 words). Workflow questions
+  go in the message body; suggestions hold safe numbered
+  plain-language options only. Slash commands, mode names, and
+  executable routing text are forbidden in suggestions. Users reply
+  by typing the number. The earlier "Pick X" example, the
+  anti-example block, and the long suggestion-authoring rules are
+  gone — `.roo/rules/` is loaded on every turn so the file is kept
+  short on purpose.
+- `templates/full/.roo/rules-custom-orchestrator/01-delegation-message.md`
+  trimmed to two bullets (`command with slash`, `user context`).
+  The receiving subtask already loads its own command-protocol
+  rule, knows where skills live, and has its own completion
+  contract, so restating those in the delegation message wasted
+  tokens on every dispatch. The "Normalized command name" line that
+  used to render alongside `Command: /refactor` is also gone.
+- `templates/full/.roo/skills/engineering/grill-with-docs/SKILL.md`
+  "Docs" section collapsed to a one-line pointer to
+  `CONTEXT-FORMAT.md`, which is now the single source of truth for
+  context-doc layout and detection.
+- `templates/full/.roo/skills/engineering/setup-matt-pocock-skills/domain.md`
+  "Layouts" section likewise collapsed to a pointer.
+- `templates/full/.roo/skills/engineering/improve-codebase-architecture/HTML-REPORT.md`
+  "Vocabulary" section collapsed to `See LANGUAGE.md.` (was a
+  verbatim duplication).
+
+### Removed
+- The 3-failure rule was removed in-place from
+  `templates/full/.roo/skills/engineering/tdd/SKILL.md`,
+  `templates/full/.roo/skills/engineering/diagnose/SKILL.md`,
+  `templates/full/.roo/rules-system-architect/02-completion.md`,
+  and `templates/full/.roo/rules-code-tweaker/00-scope.md`. The new
+  global rule `02-three-failure-rule.md` covers all four sites.
+
 ## [0.1.3] - 2026-05-26
 
 ### Removed

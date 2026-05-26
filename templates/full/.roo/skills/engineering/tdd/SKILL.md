@@ -33,7 +33,6 @@ Rules:
 - Public interface only.
 - Minimal code only.
 - No speculative features.
-- 3 failed green attempts → STOP; show blocker + exact error; ask user.
 
 ## Refactor
 
@@ -50,3 +49,11 @@ Checklist per cycle:
 - [ ] Test survives internal refactor.
 - [ ] Code minimal.
 - [ ] No speculation.
+
+## References
+
+- `tests.md` — what to assert and what not to.
+- `mocking.md` — when (and when not) to mock.
+- `interface-design.md` — designing testable interfaces.
+- `deep-modules.md` — interface vs implementation depth.
+- `refactoring.md` — refactor candidates after green.

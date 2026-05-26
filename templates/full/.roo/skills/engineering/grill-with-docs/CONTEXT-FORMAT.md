@@ -43,3 +43,14 @@ Detection:
 2. Else if root `CONTEXT.md`, use it.
 3. Else create root `CONTEXT.md` lazily on first resolved term.
 4. If context ambiguous, ask.
+
+## Companion docs
+
+Canonical names for code-explanation docs (read by `/explore`, edited by `/update-docs`):
+
+- `FLOW.md` — subsystem flow / data path; lives next to the code it describes.
+- `APP_MAP.md` — app-wide module/navigation map; root-level.
+- `ARCHITECTURE.md` — system-level structure, constraints, seams; root-level.
+- `README.md` — setup and usage; root-level.
+
+Use these names when creating new docs of these kinds. A subsystem may have its own `FLOW.md`; `APP_MAP.md` and `ARCHITECTURE.md` are typically singular per repo.

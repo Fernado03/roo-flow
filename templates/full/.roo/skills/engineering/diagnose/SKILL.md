@@ -24,7 +24,6 @@ MUST build fast pass/fail loop. Try order:
 Rules:
 - MUST make loop faster/sharper/deterministic.
 - Flake: run 100x, parallelise, stress, add sleeps, raise repro rate.
-- 3 failed loop attempts → STOP; ask env/HAR/log/core/screen recording/temp prod instrumentation.
 
 ## 2. Reproduce
 

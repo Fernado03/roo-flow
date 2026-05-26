@@ -11,22 +11,7 @@ If missing, proceed silently.
 
 ## Layouts
 
-Single-context:
-
-```text
-/CONTEXT.md
-/docs/adr/
-/src/
-```
-
-Multi-context:
-
-```text
-/CONTEXT-MAP.md
-/docs/adr/
-/src/{context}/CONTEXT.md
-/src/{context}/docs/adr/
-```
+See `.roo/skills/engineering/grill-with-docs/CONTEXT-FORMAT.md` for layout and detection.
 
 ## Rules
 

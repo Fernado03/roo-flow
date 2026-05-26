@@ -207,68 +207,32 @@ with the full transcript so the language can be tightened.
 
 ## Clickable suggestions can route incorrectly
 
-Zoo Code may render answers as clickable suggestions. Two things can
-make a click route or switch mode unintentionally:
-
-1. The suggestion text contains `/tweak`, `/fix`, `/prototype`, or a
-   mode name. Clicking it can trigger that routing.
-2. A per-option mode indicator (small icon at the bottom-right of each
-   suggestion in Zoo Code's UI) is attached. Clicking the option
-   switches the active mode, even when the label text is clean.
-
-The fix has two parts:
-
-- Keep slash commands and mode names out of suggestion text. Put
-  option labels in the suggestions themselves, leave the question
-  body short, and let the agent map the chosen number back to a
-  command.
-- Do not attach a mode-switch indicator to options unless switching
-  modes really is what clicking that option should do. For routing
-  questions answered by a typed number, no per-option mode indicator
-  is needed.
+Zoo Code may render model suggestions as clickable options. These are
+safe only when they are plain numbered choices.
 
 Good:
 
 ```text
-Question: Pick a regression test option.
+Which workflow should I use?
 
-1. Import-time sanity check
-2. Extract helper and unit-test
-3. AST guard test
-4. Hold
+1. Tweak small implementation
+2. Diagnose bug
+3. Hold
+
+Reply with the number, e.g. 1.
 ```
 
-(No slashes or mode names in the labels, and no per-option mode
-indicator attached.)
-
-Avoid:
+Avoid suggestions like:
 
 ```text
-Yes, route to /tweak via code-tweaker
 Use /fix
+Run /tweak
 Switch to code-tweaker
-/prototype
+Route to system-architect
 ```
 
-Also avoid: any option (clean text or not) that carries a mode-switch
-indicator when the intent is just "pick a number".
-
-### If a suggestion looks risky, two safe ways to reply
-
-These work on the user side, regardless of how the agent authored the
-options:
-
-1. **Type the answer instead of clicking.** Send the number (or short
-   text) as a normal message. A typed reply never triggers a
-   mode switch.
-2. **Click only when no mode indicator is shown.** Look at the
-   bottom-right of each suggestion. No indicator means clicking is
-   safe — it sends the reply without changing modes. If an indicator
-   is shown, clicking will switch modes; only click it when that is
-   what you actually want.
+Slash commands should only be treated as commands when the user
+manually types them into the chat.
 
 The short rule that enforces this lives in
 [`templates/full/.roo/rules/03-manual-reply-protocol.md`](../templates/full/.roo/rules/03-manual-reply-protocol.md).
-It also forbids the literal characters `\n` inside the question body —
-when those leak through, the chat renders them as text instead of
-breaks.

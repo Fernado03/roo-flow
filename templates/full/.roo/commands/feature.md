@@ -6,11 +6,7 @@ mode: system-architect
 EXECUTION RULES (Run sequentially. Wait for user between phases):
 1. SHARPEN (Architect): Run skill `.roo/skills/engineering/grill-with-docs/SKILL.md`. Update docs.
    HARD STOP: Ask user to choose: Prototype OR skip to PRD.
-2. PROTOTYPE [Optional]:
-   - Architect summarizes the prototype question, constraints, relevant context, and expected decision.
-   - Architect MUST `switch_mode` -> `code-tweaker`.
-   - Tweaker executes the `/prototype` command workflow using `.roo/rules/01-command-protocol.md`.
-   - Tweaker MUST `switch_mode` -> `system-architect` with prototype result, run command/URL if any, files changed, and decision needed.
+2. PROTOTYPE [Optional]: Follow `.roo/rules-system-architect/01-feature-prototype.md` for the architect→tweaker handoff.
    HARD STOP: Wait for user verdict.
 3. PRD (Architect): Run skill `.roo/skills/engineering/to-prd/SKILL.md` using a 3-bullet summary of prior phases.
    HARD STOP: Ask "Ready to slice into issues?". Wait for approval.

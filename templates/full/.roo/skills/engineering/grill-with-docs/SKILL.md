@@ -16,9 +16,7 @@ description: Grilling session that challenges your plan against the existing dom
 
 ## Docs
 
-- Single-context: root `CONTEXT.md`, root `docs/adr/`.
-- Multi-context: root `CONTEXT-MAP.md` → per-context `CONTEXT.md` + ADRs.
-- Create docs lazily only when recording needed.
+See `CONTEXT-FORMAT.md` for layout and detection. Create docs lazily only when recording needed.
 
 ## MUST
 

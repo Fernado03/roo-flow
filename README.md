@@ -68,9 +68,12 @@ ways to drive Zoo Flow, and the choice matters:
 
   > /tweak fix the typo in `README`
 
-Numbered choices the orchestrator presents are answered by typing
-the number. Clicking is safe when the suggestion has no mode-switch
-indicator at the bottom-right; otherwise type instead. See
+When Zoo Flow asks a workflow question, reply by typing the number,
+for example `1`.
+
+Zoo Flow may show numbered options, but those options should be
+plain-language choices only. They should not contain slash commands,
+mode names, or executable routing text. See
 [`docs/troubleshooting.md`](docs/troubleshooting.md#clickable-suggestions-can-route-incorrectly).
 
 ## Update
