@@ -4,7 +4,7 @@
   "description": "Smoke-tested workflow control plane for Zoo Code.",
   "type": "module",
   "bin": {
-    "zoo-flow": "./bin/zoo-flow.js"
+    "zoo-flow": "bin/zoo-flow.js"
   },
   "files": [
     "bin",
