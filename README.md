@@ -175,18 +175,6 @@ When choices appear, manually type the number, e.g. `1`. Do not click
 suggestions that contain slash commands or mode names. See
 [`docs/troubleshooting.md`](docs/troubleshooting.md#clickable-suggestions-can-route-incorrectly).
 
-## Quick start
-
-```bash
-npx @fernado03/zoo-flow@latest init
-```
-
-Then reload VS Code and run this in `custom-orchestrator`:
-
-> change a harmless comment in `README`
-
-When choices appear, type the number manually, for example `1`.
-
 ## Manual install
 
 If you would rather copy the template by hand:
