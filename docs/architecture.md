@@ -14,7 +14,6 @@ templates/full/
     ├── rules/                      # always-on, every mode, every turn
     │   ├── 00-paths.md
     │   ├── 01-command-protocol.md
-    │   ├── 02-skills-index.md
     │   └── 03-manual-reply-protocol.md
     ├── rules-custom-orchestrator/  # mode-scoped, orchestrator only
     │   ├── 00-routing.md
@@ -222,10 +221,11 @@ Skills are loaded **only** through commands. There is no "skill autoloader"
 that pulls them on every turn. The orchestrator does not see skills at all;
 it only sees commands.
 
-The skills index lives in
-[`templates/full/.roo/rules/02-skills-index.md`](../templates/full/.roo/rules/02-skills-index.md).
-It is a stable lookup table for the rare case a mode needs to confirm a
-skill exists.
+The skills index lives in [`docs/skills-index.md`](skills-index.md).
+It is human-facing reference documentation, intentionally kept outside
+`.roo/rules/` because `.roo/rules/` is injected on every turn. Commands
+load skills directly from explicit `.roo/skills/.../SKILL.md` paths, so
+the index is not required for runtime execution.
 
 ## Same-window `switch_mode`
 

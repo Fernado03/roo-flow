@@ -11,6 +11,14 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   primary target. The `.roo/` folder names, `.roomodes`,
   `.roo/commands/`, and `.roo/rules-{mode-slug}/` paths are kept
   unchanged because they are the official Zoo Code configuration paths.
+- Moved the skills index out of always-loaded rules. The reference table
+  now lives at `docs/skills-index.md` instead of
+  `templates/full/.roo/rules/02-skills-index.md`. `.roo/rules/` is
+  injected on every turn, so it should contain only rules needed every
+  turn. Commands load skills directly via explicit
+  `.roo/skills/.../SKILL.md` paths, so the runtime did not need the
+  index. Always-loaded global rules are now `00-paths.md`,
+  `01-command-protocol.md`, and `03-manual-reply-protocol.md` only.
 - `.roomodes` is now minimal. Each mode's `customInstructions` points at
   the matching `.roo/rules-{modeSlug}/` folder for detailed behavior.
 - Mode behavior moved out of `.roomodes` into mode-rule files:

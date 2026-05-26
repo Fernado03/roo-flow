@@ -72,7 +72,7 @@ Zoo Flow plays well with broader skills libraries. The skills under
 `templates/full/.roo/skills/` follow a standard `SKILL.md` format and
 are loaded by command. If you want to bring in a skill from another
 project, drop it under the right bucket, add a one-line entry to the
-bucket `README.md` and to `02-skills-index.md`, and reference it from
+bucket `README.md` and to `docs/skills-index.md`, and reference it from
 a command file. The control plane does not care where the skill came
 from.
 

@@ -28,7 +28,7 @@ small, validated, and predictable are very welcome.
   [`templates/full/.roo/rules/01-command-protocol.md`](templates/full/.roo/rules/01-command-protocol.md)
   and route through the existing modes.
 - New skills under an existing bucket, with a one-line entry added to
-  [`templates/full/.roo/rules/02-skills-index.md`](templates/full/.roo/rules/02-skills-index.md)
+  [`docs/skills-index.md`](docs/skills-index.md)
   and the bucket `README.md`.
 - Smoke-test additions covering real failure modes.
 
@@ -71,7 +71,7 @@ Before opening a pull request:
 - [ ] Smoke tests pass for the modes and commands you touched.
 - [ ] `CHANGELOG.md` updated under `## [Unreleased]`.
 - [ ] If you added a skill, it appears in the bucket `README.md` and in
-      `02-skills-index.md`.
+      `docs/skills-index.md`.
 
 ## Code of conduct
 

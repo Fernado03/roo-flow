@@ -1,8 +1,12 @@
 # Skills Index
 
-Rules under `.roo/rules/` are always loaded by Zoo Code on every turn (workspace-wide, all modes).
+This is human-facing reference documentation for Zoo Flow skills.
 
-On-demand skills are different: they live under `.roo/skills/` and are loaded by commands. Path safety: see `.roo/rules/00-paths.md`.
+It is intentionally kept outside `.roo/rules/` because Zoo Code loads
+`.roo/rules/` automatically on every turn.
+
+Commands load skills directly from explicit `.roo/skills/.../SKILL.md`
+paths, so this index is not required for runtime execution.
 
 ## engineering
 

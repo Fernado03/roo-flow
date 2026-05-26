@@ -40,6 +40,12 @@ paths because they are the official Zoo Code configuration paths. See
 [the Zoo Code docs](https://docs.zoocode.dev/) for the canonical
 reference.
 
+Zoo Flow keeps skill discovery in [`docs/skills-index.md`](docs/skills-index.md),
+not `.roo/rules/`, so the always-loaded rule set stays small. Zoo Code
+loads everything in `.roo/rules/` on every turn, so that folder only
+contains rules needed every turn: path safety, the command protocol,
+and the manual-reply protocol.
+
 ## Core workflow
 
 ```mermaid
