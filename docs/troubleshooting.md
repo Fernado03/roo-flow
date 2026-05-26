@@ -212,23 +212,26 @@ with the full transcript so the language can be tightened.
 ## Clickable suggestions can route incorrectly
 
 Zoo Code may render answers as clickable suggestions. If a suggestion
-contains `/tweak`, `/fix`, `/prototype`, or a mode name, clicking it may
-trigger routing or mode behavior instead of acting like a normal typed
-reply.
+contains `/tweak`, `/fix`, `/prototype`, or a mode name, clicking it
+may trigger routing or mode behavior instead of acting like a normal
+typed reply.
 
-Use typed numbered replies instead.
+The fix: keep slash commands and mode names out of suggestion text.
+Put option labels in the suggestions themselves, leave the question
+body short, and let the agent map the chosen number back to a command.
 
 Good:
 
 ```text
-1. /tweak — small implementation
-2. /fix — diagnose bug
-3. Hold
+Question: Pick a regression test option.
 
-Reply with the number, e.g. 1.
+1. Import-time smoke test
+2. Extract helper and unit-test
+3. AST guard test
+4. Hold
 ```
 
-Avoid clickable suggestions like:
+Avoid:
 
 ```text
 Yes, route to /tweak via code-tweaker
@@ -237,6 +240,8 @@ Switch to code-tweaker
 /prototype
 ```
 
-If suggestions are unavoidable, make them numeric only: `1`, `2`, `3`,
-or `Hold`. The short rule that enforces this lives in
+The short rule that enforces this lives in
 [`templates/full/.roo/rules/03-manual-reply-protocol.md`](../templates/full/.roo/rules/03-manual-reply-protocol.md).
+It also forbids the literal characters `\n` inside the question body —
+when those leak through, the chat renders them as text instead of
+breaks.

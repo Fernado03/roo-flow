@@ -37,9 +37,9 @@ small request like:
 
 > change a harmless comment in `README`
 
-When the orchestrator presents numbered choices, **type the number
-manually**. Do not click suggestions that contain slash commands or
-mode names — see
+Numbered choices are safe to click or type. Suggestions never carry
+slash commands or mode names, so they will not route you into another
+mode — see
 [`docs/troubleshooting.md`](docs/troubleshooting.md#clickable-suggestions-can-route-incorrectly).
 
 > **Note**: `.roomodes`, `.roo/commands/`, and `.roo/rules-{mode-slug}/`

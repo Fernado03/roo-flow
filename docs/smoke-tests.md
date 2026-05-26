@@ -32,15 +32,15 @@ Tweak the README so the install section mentions Windows first.
 **Pass**
 
 - Orchestrator does not edit any file.
-- Orchestrator presents `/tweak` (and possibly `/update-docs`) as
-  **numbered options** and asks you to manually type the number.
+- Orchestrator presents numbered options (the labels describe the
+  workflow without slash commands or mode names) and accepts a
+  clicked or typed number.
 - Orchestrator halts. No `new_task` is launched yet.
 
-**Reply (manual type)**
+**Reply**
 
-When the orchestrator asks which workflow to use, manually type `1` (or
-whichever number matches `/tweak`). Do not click any suggestion that
-contains a slash command or mode name. See
+Pick the number that matches a tweak-style workflow. Clicking the
+suggestion is fine because the labels are plain text. See
 [`troubleshooting.md`](troubleshooting.md#clickable-suggestions-can-route-incorrectly).
 
 **Fail diagnostics**
