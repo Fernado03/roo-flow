@@ -37,8 +37,8 @@ plug Zoo Flow's commands into a richer harness if you have one.
 
 - A `.roomodes` file that defines three custom modes with deliberate
   tool-group boundaries.
-- A handful of always-on rules: path safety, command protocol, skills
-  index, and a bucket-layout note.
+- A handful of always-on rules: path safety, command protocol,
+  three-failure guardrail, manual reply safety, and context economy.
 - A directory layout for slash commands and on-demand skills.
 
 If you only adopt one piece of Zoo Flow, adopt the path-safety rule and

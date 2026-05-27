@@ -49,8 +49,8 @@ sequenceDiagram
     User->>O: Tweak the README to mention Windows first.
     O->>O: No explicit slash command
     O->>O: Map to /tweak (or /update-docs)
-    O-->>User: Proposes /tweak — would you like /tweak or /update-docs?
-    User->>O: /tweak
+    O-->>User: Offers numbered choices: 1. Tweak README 2. Update docs
+    User->>O: 1
 ```
 
 After step 5 the flow continues exactly like the explicit case above.

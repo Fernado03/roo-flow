@@ -184,7 +184,7 @@ argument-hint: <what to change>
 mode: code-tweaker
 ---
 
-Run skill: `.roo/skills/engineering/tweak/SKILL.md`
+Skill: `.roo/skills/engineering/tweak/SKILL.md`
 
 $ARGUMENTS
 ```

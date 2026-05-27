@@ -60,8 +60,11 @@ The current `.roomodes` keeps four things per mode:
    - points at the matching `.roo/rules-{modeSlug}/` folder,
    - lists the permitted commands (or routing matrix, for the
      orchestrator),
-   - references the global rules (`00-paths.md`,
-     `01-command-protocol.md`, `03-manual-reply-protocol.md`),
+   - references the global rules it calls out directly (`00-paths.md`,
+     `01-command-protocol.md`, `03-manual-reply-protocol.md`). Other
+     global rules, such as `02-three-failure-rule.md` and
+     `04-context-economy.md`, are loaded automatically from
+     `.roo/rules/`.
    - says what to do if an unsupported command is assigned.
 
 Everything else lives in the mode rules folder.
