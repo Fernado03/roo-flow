@@ -6,6 +6,8 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-05-27
+
 ### Added
 - Global context-economy rule
   (`.roo/rules/04-context-economy.md`) to reduce unnecessary file
@@ -281,7 +283,8 @@ First public npm release as `@fernado03/zoo-flow`.
   npm release. It was never published to a registry. The first
   publicly distributed `0.1.0` is this Zoo Flow release on npm.
 
-[Unreleased]: https://github.com/Fernado03/zoo-flow/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/Fernado03/zoo-flow/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.2.0
 [0.1.4]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.4
 [0.1.3]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.3
 [0.1.2]: https://github.com/Fernado03/zoo-flow/releases/tag/v0.1.2
