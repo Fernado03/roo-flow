@@ -7,3 +7,6 @@ node_modules/
 docs/journal/
 *.tgz
 .test-install/
+
+# Local repo bundles (snapshot output of one-off scripts)
+ZOO-FLOW-BUNDLE.md
