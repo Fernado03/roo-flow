@@ -141,6 +141,34 @@ function validateTemplate(rootDir) {
     }
   }
 
+  // Validate skill-wrapper command references. Each command file in
+  // .roo/commands/ may either declare a skill via `Skill:
+  // .roo/skills/.../SKILL.md` (skill-wrapper command) or contain its
+  // workflow steps directly. Direct-workflow commands are valid; we only
+  // verify referenced skills exist.
+  if (pathExists(commandsDir)) {
+    const skillRefRegex = /^Skill:\s*`?(\.roo\/skills\/[^\s`]+SKILL\.md)`?\s*$/m;
+
+    for (const entry of fs.readdirSync(commandsDir)) {
+      if (!entry.endsWith(".md")) continue;
+
+      const commandFile = path.join(commandsDir, entry);
+      const text = fs.readFileSync(commandFile, "utf8");
+      const match = text.match(skillRefRegex);
+
+      if (!match) continue;
+
+      const skillRelative = match[1];
+      const skillAbsolute = path.join(rootDir, skillRelative);
+
+      if (!pathExists(skillAbsolute)) {
+        failures.push(
+          `Command ${path.relative(rootDir, commandFile)} references missing skill: ${skillRelative}`
+        );
+      }
+    }
+  }
+
   const allFiles = walkFiles(rootDir);
   const textFileExtensions = new Set([".md", ".json", ".txt", ".yaml", ".yml"]);
 

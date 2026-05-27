@@ -1,25 +1,23 @@
 # Command Protocol
 
-When assigned a slash command, execute the command workflow before doing task-specific work.
-
-Protocol:
+When assigned a slash command, execute its command workflow before task-specific work.
 
 1. Normalize the command by stripping the leading slash.
-   - `/fix` becomes `fix`
-   - `/tdd` becomes `tdd`
 
-2. Preferred execution:
-   - Use `run_slash_command` if available.
-   - Pass `command` as the normalized command name.
-   - Pass `args` as the full user/delegated task context.
+2. Preferred: use `run_slash_command` with:
+   - `command`: normalized command name
+   - `args`: full user/delegated context
 
-3. Fallback execution:
-   - If `run_slash_command` is unavailable, disabled, rejected, or fails, read the command file from:
-     - `.roo/commands/{command}.md`
+3. Fallback: if `run_slash_command` is unavailable, disabled, rejected, or fails, read `.roo/commands/{command}.md`.
 
-4. If the command file references a skill:
-   - Read the exact `.roo/skills/...` path from the command file.
-   - Follow the skill instructions after loading.
+4. After command content is loaded:
+   - If it explicitly contains `Skill: .roo/skills/.../SKILL.md`, read that exact skill and follow it.
+   - If it contains direct workflow steps, execute those steps directly.
+   - Do not assume every command has a skill.
+   - Do not read any skill unless the command explicitly references it.
 
-5. Do not auto-run follow-up commands merely because they are mentioned in a subtask summary.
-   - Only the human user or orchestrator routing may authorize a new command.
+5. Use only one command-loading path:
+   - If `run_slash_command` succeeds, do not also read `.roo/commands/{command}.md`.
+   - If fallback command-file read succeeds, do not also call `run_slash_command`.
+
+6. Do not auto-run follow-up commands merely because they are mentioned in a result or subtask summary.

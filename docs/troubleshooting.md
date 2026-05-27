@@ -251,3 +251,27 @@ Policies:
 This prevents unnecessary questions during well-specified subtasks,
 while preserving approval gates for hypotheses, architecture decisions,
 commits, issue changes, and irreversible actions.
+
+## Agent loads a skill after every command
+
+Some commands are direct workflows, while others are thin wrappers
+around skills. The protocol should only load a skill when the command
+file explicitly says so.
+
+Correct behavior:
+
+```text
+/tdd
+  → command contains `Skill: .roo/skills/engineering/tdd/SKILL.md`
+  → load the skill
+
+/fix
+  → command contains direct workflow steps
+  → execute the command directly
+  → do not invent `.roo/skills/.../fix/SKILL.md`
+```
+
+**Fix:** check
+[`templates/full/.roo/rules/01-command-protocol.md`](../templates/full/.roo/rules/01-command-protocol.md).
+It should say to load a skill only when the command explicitly
+contains a `Skill: .roo/skills/...` reference.

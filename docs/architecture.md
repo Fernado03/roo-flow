@@ -137,6 +137,25 @@ When a mode is assigned a slash command:
 The protocol exists to make slash commands work the same way whether the
 host UI exposes a native command runner or only file reads.
 
+### Command types
+
+Zoo Flow supports two command types:
+
+1. **Skill-wrapper commands.** The command file declares a skill via a
+   line like:
+
+   ```md
+   Skill: `.roo/skills/engineering/tdd/SKILL.md`
+   ```
+
+   The worker loads and follows that skill.
+
+2. **Direct workflow commands.** The command file contains the
+   procedure directly (no `Skill:` line). The worker executes those
+   steps directly and must not invent a skill path.
+
+This prevents redundant loading and avoids hallucinated skill paths.
+
 ## Path safety
 
 The path-safety contract is in
