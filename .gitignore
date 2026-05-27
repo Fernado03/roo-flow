@@ -10,3 +10,4 @@ docs/journal/
 
 # Local repo bundles (snapshot output of one-off scripts)
 ZOO-FLOW-BUNDLE.md
+scripts/bundle.ps1
