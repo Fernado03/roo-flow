@@ -14,7 +14,9 @@ templates/full/
     ├── rules/                      # always-on, every mode, every turn
     │   ├── 00-paths.md
     │   ├── 01-command-protocol.md
-    │   └── 03-manual-reply-protocol.md
+    │   ├── 02-three-failure-rule.md
+    │   ├── 03-manual-reply-protocol.md
+    │   └── 04-context-economy.md
     ├── rules-custom-orchestrator/  # mode-scoped, orchestrator only
     │   ├── 00-routing.md
     │   └── 01-delegation-message.md

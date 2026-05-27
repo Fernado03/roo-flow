@@ -105,9 +105,8 @@ behavior lives in `.roo/rules-{modeSlug}/` folders. See
 
 ## Commands
 
-The orchestrator routes the **core** commands. **Helper** commands you
-run directly inside `system-architect` or `code-tweaker` when you
-need them.
+The orchestrator routes the **core** commands. **Helper** commands are
+run directly inside `system-architect` or `code-tweaker` when needed.
 
 ### Core (routed by the orchestrator)
 

@@ -99,15 +99,14 @@ flow unsafe.
 When the orchestrator hands work to a mode, the `new_task` message
 contains, at minimum:
 
-- `/{command}` — the slash form, so it is greppable in chat.
-- `{command}` — the normalized name, so the receiving mode can hand it
-  to `run_slash_command`.
-- The user context.
-- A reminder to follow `templates/full/.roo/rules/01-command-protocol.md`.
-- A reminder that skills are at `.roo/skills/...`.
-- A completion rule: end with `attempt_completion` containing summary,
+- the slash command, including the leading slash
+- the user context
+- a proceed policy
+- a reminder to follow `.roo/rules/01-command-protocol.md`
+- a reminder that skills live under `.roo/skills/...`
+- a completion rule: end with `attempt_completion` containing summary,
   files inspected/changed, commands/tests run, blockers, and a
-  recommended next command.
+  recommended next command
 
-This template is enforced by the orchestrator's `customInstructions` (rule
-5 in `.roomodes`).
+Command normalization is handled by `.roo/rules/01-command-protocol.md`,
+not repeated in the delegated message.

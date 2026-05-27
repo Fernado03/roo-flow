@@ -25,7 +25,7 @@ Type:
 
 Orchestrator looks up the routing matrix and delegates with `new_task`
 targeting `system-architect`. The delegated message includes the
-slash form, normalized name, user context, command-protocol pointer,
+slash form, user context, proceed policy, command-protocol pointer,
 skills location, and the completion rule.
 
 ## Phase 2 — architect diagnoses
