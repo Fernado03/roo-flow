@@ -86,6 +86,10 @@ Backs up your current `.roomodes` and `.roo/` to
 `.zoo-flow-backup/<timestamp>/`, then replaces them with the latest
 template. Preview with `--dry-run`.
 
+## Context economy
+
+Zoo Flow avoids unnecessary token use by asking agents to search or list before broad reads, use targeted line ranges when possible, and avoid re-reading unchanged files. Full-file reads are still allowed when correctness requires complete context.
+
 ## Modes
 
 | Slug                  | Name                  | Role                                                       | Edits allowed                                  | Delegation                                  |

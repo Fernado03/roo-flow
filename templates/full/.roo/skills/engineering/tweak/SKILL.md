@@ -15,3 +15,15 @@ Use for small known fixes.
 6. DO NOT write new tests unless asked.
 7. Confirm change.
 8. Offer `/commit-and-document` only after user satisfied.
+
+## Context economy
+
+Before broad reads, locate relevant files/symbols with `list_files`, `search_files`, or `codebase_search`.
+
+Prefer targeted `read_file` ranges or indentation/block reads once the relevant area is known.
+
+Read full files only when structure, ordering, or surrounding context is required for correctness.
+
+Do not re-read unchanged files; use prior findings unless the file changed.
+
+For small changes, audit only the named files and nearby call sites. Expand search only if the first audit shows hidden dependencies.

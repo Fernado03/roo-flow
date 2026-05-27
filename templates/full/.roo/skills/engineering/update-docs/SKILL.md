@@ -51,6 +51,16 @@ Use today's date. Include only files actually inspected.
 
 After editing: re-read, confirm referenced paths exist, every major claim maps to code or a cited doc, no stale contradiction with nearby docs. Summarise the change.
 
+## Context economy
+
+Before broad reads, locate relevant files/symbols with `list_files`, `search_files`, or `codebase_search`.
+
+Prefer targeted `read_file` ranges or indentation/block reads once the relevant area is known.
+
+Read full files only when structure, ordering, or surrounding context is required for correctness.
+
+Do not re-read unchanged files; use prior findings unless the file changed.
+
 ## 7. Recommend next step
 
 Recommend one: `/explore` (still unclear), `/feature` (plan emerged), `/refactor` (tangled-but-working code), `/fix` (bug found), `/commit-and-document` (done). Do not auto-run.

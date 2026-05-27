@@ -124,6 +124,18 @@ Date via `date +%Y-%m-%d`. Create `docs/journal/<YYYY-MM-DD>/` if missing. Write
 
 Report: commit hash + message, journal entry path, whether `.gitignore` was updated, and any issue actions taken. Close with: "All of `docs/` is gitignored, so this entry stays local."
 
+## Context economy
+
+Before broad reads, locate relevant files/symbols with `list_files`, `search_files`, or `codebase_search`.
+
+Prefer targeted `read_file` ranges or indentation/block reads once the relevant area is known.
+
+Read full files only when structure, ordering, or surrounding context is required for correctness.
+
+Do not re-read unchanged files; use prior findings unless the file changed.
+
+Use `git status --short`, `git diff --stat`, and targeted `git diff -- <file>` rather than dumping the full repo diff at once.
+
 ## Safety
 
 - Never `git push`, `--amend`, `--force`, or `reset --hard`.

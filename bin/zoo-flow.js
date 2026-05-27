@@ -195,7 +195,9 @@ function validateTemplate(rootDir) {
   const requiredRules = [
     ".roo/rules/00-paths.md",
     ".roo/rules/01-command-protocol.md",
-    ".roo/rules/03-manual-reply-protocol.md"
+    ".roo/rules/02-three-failure-rule.md",
+    ".roo/rules/03-manual-reply-protocol.md",
+    ".roo/rules/04-context-economy.md"
   ];
 
   for (const rule of requiredRules) {

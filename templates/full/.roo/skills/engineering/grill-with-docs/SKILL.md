@@ -18,6 +18,16 @@ description: Grilling session that challenges your plan against the existing dom
 
 See `CONTEXT-FORMAT.md` for layout and detection. Create docs lazily only when recording needed.
 
+## Context economy
+
+Before broad reads, locate relevant files/symbols with `list_files`, `search_files`, or `codebase_search`.
+
+Prefer targeted `read_file` ranges or indentation/block reads once the relevant area is known.
+
+Read full files only when structure, ordering, or surrounding context is required for correctness.
+
+Do not re-read unchanged files; use prior findings unless the file changed.
+
 ## MUST
 
 - Challenge glossary conflicts.

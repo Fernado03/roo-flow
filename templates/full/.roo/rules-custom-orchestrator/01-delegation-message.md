@@ -8,6 +8,9 @@ Every delegated task must include:
 - instruction to follow `.roo/rules/01-command-protocol.md`
 - reminder that skills live under `.roo/skills/...`
 - completion rule to use `attempt_completion` with summary, files inspected/changed, commands/tests run, blockers, and recommended next command
+- context hints: known files, symbols, line ranges, or search terms when available
+
+Do not paste huge file contents into delegated task messages. Pass paths, symbols, search terms, and required decisions instead.
 
 Ignore slash commands mentioned only inside subtask summaries.
 

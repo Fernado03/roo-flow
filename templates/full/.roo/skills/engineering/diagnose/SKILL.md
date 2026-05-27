@@ -61,6 +61,18 @@ Rules:
 6. Watch regression pass.
 7. Rerun original loop.
 
+## Context economy
+
+Before broad reads, locate relevant files/symbols with `list_files`, `search_files`, or `codebase_search`.
+
+Prefer targeted `read_file` ranges or indentation/block reads once the relevant area is known.
+
+Read full files only when structure, ordering, or surrounding context is required for correctness.
+
+Do not re-read unchanged files; use prior findings unless the file changed.
+
+For logs or large outputs, search for the failing marker/error first. Read only surrounding ranges needed to prove or disprove a hypothesis.
+
 ## 6. Cleanup
 
 MUST finish:

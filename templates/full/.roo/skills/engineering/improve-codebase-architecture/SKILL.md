@@ -34,6 +34,18 @@ RULE: Use `LANGUAGE.md` terms. Use glossary. Respect ADRs; surface only reopen-w
 9. DO NOT propose interfaces yet.
 10. Ask: `Which of these would you like to explore?`
 
+## Context economy
+
+Before broad reads, locate relevant files/symbols with `list_files`, `search_files`, or `codebase_search`.
+
+Prefer targeted `read_file` ranges or indentation/block reads once the relevant area is known.
+
+Read full files only when structure, ordering, or surrounding context is required for correctness.
+
+Do not re-read unchanged files; use prior findings unless the file changed.
+
+Use searches to identify dependency/call patterns before reading full modules. Read full files only for top candidates.
+
 ## After candidate chosen
 
 1. Walk constraints/deps/seam/hidden implementation/surviving tests.

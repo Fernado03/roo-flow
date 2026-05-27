@@ -275,3 +275,14 @@ Correct behavior:
 [`templates/full/.roo/rules/01-command-protocol.md`](../templates/full/.roo/rules/01-command-protocol.md).
 It should say to load a skill only when the command explicitly
 contains a `Skill: .roo/skills/...` reference.
+
+## Agent reads too many files
+
+Check `.roo/rules/04-context-economy.md`.
+
+Expected behavior:
+
+1. map/search first
+2. read targeted ranges
+3. full-read only when necessary
+4. avoid re-reading unchanged files

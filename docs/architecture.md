@@ -306,3 +306,9 @@ architect uses `switch_mode` first.
 `attempt_completion` returns to the orchestrator with a structured summary.
 The orchestrator then summarizes for the user and halts. It never
 auto-launches the next subtask, even if the summary suggests one.
+
+## Context economy
+
+Zoo Flow avoids unnecessary token use by asking agents to search or list before broad reads, use targeted line ranges when possible, and avoid re-reading unchanged files.
+
+Full-file reads are still allowed when correctness requires complete context.

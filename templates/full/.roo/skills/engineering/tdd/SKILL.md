@@ -50,6 +50,18 @@ Checklist per cycle:
 - [ ] Code minimal.
 - [ ] No speculation.
 
+## Context economy
+
+Before broad reads, locate relevant files/symbols with `list_files`, `search_files`, or `codebase_search`.
+
+Prefer targeted `read_file` ranges or indentation/block reads once the relevant area is known.
+
+Read full files only when structure, ordering, or surrounding context is required for correctness.
+
+Do not re-read unchanged files; use prior findings unless the file changed.
+
+Read the public interface and nearest existing tests first. Avoid reading unrelated implementation until a failing test or search result points there.
+
 ## References
 
 - `tests.md` — what to assert and what not to.
