@@ -6,6 +6,59 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+- Global context-economy rule
+  (`.roo/rules/04-context-economy.md`) to reduce unnecessary file
+  reads and large command-output dumps. Loaded on every turn.
+  Mode rules and high-read skills point at it; the full rule is not
+  duplicated.
+- Proceed policy on delegated tasks. The orchestrator now declares
+  one of `Proceed automatically after audit if clean`, `Ask user
+  before implementation`, or `Stop and report only`, with per-command
+  defaults documented in
+  `.roo/rules-custom-orchestrator/01-delegation-message.md`. Mode
+  rules tell workers to respect it.
+- `context hints` field on the delegated message (paths, symbols,
+  line ranges, or search terms when known) plus a sentence telling
+  the orchestrator not to paste large file contents.
+- CLI doctor now requires `02-three-failure-rule.md` and
+  `04-context-economy.md`, and validates skill-wrapper command
+  references: a command file containing `Skill:
+  .roo/skills/.../SKILL.md` must point at a real skill; commands
+  without that line are accepted as direct-workflow commands.
+
+### Changed
+- Command protocol rewritten. The agent now loads a skill only when
+  the command file explicitly contains `Skill: .roo/skills/.../SKILL.md`.
+  Commands without that line are direct-workflow commands and run as
+  written; the agent must not invent a skill path. Adds an
+  exclusivity rule between `run_slash_command` and the
+  `.roo/commands/{command}.md` fallback so they are not both used.
+- Manual reply protocol now allows plain-language option text on
+  clickable suggestions, while still forbidding slash commands, mode
+  names, and executable routing text. Users may reply with the
+  number or the option text. The orchestrator's manual-reply line in
+  `.roomodes` was tightened with the same wording.
+- Delegation message contract regrew on purpose to support proceed
+  policy: it now lists command with slash, user context, proceed
+  policy, command-protocol pointer, skills-path reminder,
+  completion contract, and context hints.
+- `docs/architecture.md`, `docs/command-flow.md`,
+  `docs/comparison.md`, `docs/mode-rules.md`, `docs/troubleshooting.md`,
+  `examples/fix-flow.md`, and `README.md` were brought back in line
+  with the current runtime: tree includes
+  `02-three-failure-rule.md` and `04-context-economy.md`, slash-command
+  example uses the canonical `Skill:` marker, the free-form-routing
+  diagram uses numbered choices instead of clickable slash commands,
+  the always-on rules list reflects what is actually loaded, and the
+  delegated-message description no longer mentions a "normalized
+  command name" field.
+
+### Removed
+- `normalized command name` is no longer a delegated-message field.
+  Command normalization happens in `.roo/rules/01-command-protocol.md`
+  and is not repeated in the delegation contract.
+
 ## [0.1.4] - 2026-05-26
 
 ### Added
