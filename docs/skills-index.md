@@ -54,6 +54,7 @@ paths, so this index is not required for runtime execution.
 | Skill | Path |
 |---|---|
 | `review` | `.roo/skills/in-progress/review/SKILL.md` |
+| `teach` | `.roo/skills/in-progress/teach/SKILL.md` |
 | `writing-beats` | `.roo/skills/in-progress/writing-beats/SKILL.md` |
 | `writing-fragments` | `.roo/skills/in-progress/writing-fragments/SKILL.md` |
 | `writing-shape` | `.roo/skills/in-progress/writing-shape/SKILL.md` |

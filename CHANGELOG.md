@@ -6,6 +6,25 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-05-29
+
+### Added
+- `teach` in-progress skill
+  (`.roo/skills/in-progress/teach/`): a stateful, multi-session
+  teaching workspace driven by `MISSION.md`, `GLOSSARY.md`,
+  `RESOURCES.md`, and sequential learning records. Ships with format
+  guides (`mission-format.md`, `glossary-format.md`,
+  `resources-format.md`, `learning-record-format.md`). Listed as a
+  draft in the in-progress README and `docs/skills-index.md`; not yet
+  promoted or wired to a slash command.
+
+### Changed
+- `grill-with-docs` `CONTEXT-FORMAT.md` trimmed: the glossary alias
+  rule now points at the canonical `` `_Avoid_` `` marker, and the
+  redundant `relationships/cardinality` and `example dialogue` rules
+  were removed (the `## Flagged ambiguities` section already covers
+  conflict resolution).
+
 ## [0.2.0] - 2026-05-27
 
 ### Added

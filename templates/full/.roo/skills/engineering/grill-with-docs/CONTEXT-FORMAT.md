@@ -23,10 +23,8 @@ _Avoid_: Purchase, transaction
 - MUST pick canonical term; aliases under `_Avoid_`.
 - MUST flag ambiguity + resolution.
 - Define term in 1–2 sentences: what it is, not behavior.
-- Include relationships/cardinality when obvious.
 - Include domain terms only; exclude generic programming terms.
 - Group under headings when useful.
-- Include example dialogue.
 
 ## Layout
 
