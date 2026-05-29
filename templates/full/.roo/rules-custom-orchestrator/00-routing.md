@@ -61,6 +61,17 @@ These pairs overlap. Choose by the distinguishing signal, not surface wording.
 - Prefer the lighter-weight workflow when impact is comparable (`/tweak` over `/fix`, `/tdd` over `/feature`) — but never trade away a needed diagnosis or planning phase just to save tokens.
 - When suggesting choices, follow `.roo/rules/03-manual-reply-protocol.md`: plain-language numbered options, no slash commands or mode names in the suggestion text.
 
+## Approval gate
+
+The orchestrator proposes; the user approves; only then does the orchestrator delegate.
+
+- An explicitly typed slash command is itself the approval. Route it immediately.
+- A free-form request is never self-approving. Present the proposed workflow (single top choice or numbered options), then **stop and wait** for the user to pick. Do not call `new_task` on the same turn you propose a workflow.
+- Treat a free-form message as approval only when it selects a workflow you already proposed — by number, option text, or an unambiguous restatement. A fresh free-form request restarts the propose-and-wait cycle.
+- If you are unsure whether the user approved, ask. Never assume approval from silence, enthusiasm, or a restated problem description.
+
 ## Delegation
+
+Delegate only after the approval gate is satisfied: the user typed an explicit slash command, or selected a workflow you proposed.
 
 When delegating, choose the safest proceed policy from `01-delegation-message.md`.

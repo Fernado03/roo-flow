@@ -6,6 +6,16 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+- Orchestrator delegated a workflow on free-form requests without
+  waiting for user approval. Added an explicit **Approval gate** to
+  `.roo/rules-custom-orchestrator/00-routing.md`: the orchestrator
+  proposes a workflow and stops; it calls `new_task` only after the
+  user types an explicit slash command or picks a proposed option. A
+  free-form request is never self-approving. The orchestrator's
+  `customInstructions` in `.roomodes` were tightened with the same
+  propose-then-wait rule.
+
 ## [0.3.1] - 2026-05-29
 
 ### Changed
