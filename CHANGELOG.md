@@ -6,7 +6,36 @@ aims for [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [0.3.0] - 2026-05-29
+## [0.3.1] - 2026-05-29
+
+### Changed
+- Orchestrator routing rule (`.roo/rules-custom-orchestrator/00-routing.md`)
+  rewritten with a routed-command table, a top-down decision guide, and
+  disambiguation for overlapping pairs (`/fix` vs `/tweak`, `/feature` vs
+  `/tdd` vs `/prototype`, `/refactor` vs `/tweak`, `/explore` first). The
+  added precision lives in orchestrator-only rules, so it costs tokens
+  only on routing turns.
+- Worker completion rules (`.roo/rules-system-architect/02-completion.md`,
+  `.roo/rules-code-tweaker/01-completion.md`) are now chain-aware: a
+  delegated task is the entire command chain, so workers `switch_mode`
+  while phases remain and use `attempt_completion` only on the final
+  phase. Each worker re-checks the command body before completing. Fixes
+  composite workflows (`/fix`, `/feature`, `/refactor`) breaking out to
+  the orchestrator mid-chain.
+- Delegation message contract
+  (`.roo/rules-custom-orchestrator/01-delegation-message.md`) defines a
+  delegated task as the whole command chain.
+- Composite commands (`fix.md`, `feature.md`, `refactor.md`) now write an
+  unchecked phase checklist to `.scratch/` and update it before every
+  `switch_mode` or `attempt_completion`, anchoring chain state against
+  context growth.
+- Docs (`docs/architecture.md`, `docs/command-flow.md`) synced to the
+  chain-aware completion behavior.
+
+### Fixed
+- `/triage` command was missing its `mode: system-architect` front-matter,
+  so direct (non-routed) invocation did not auto-switch into the architect
+  mode like its routed peers. Added the mode line.
 
 ### Added
 - `teach` in-progress skill

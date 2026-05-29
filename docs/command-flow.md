@@ -61,15 +61,26 @@ After step 5 the flow continues exactly like the explicit case above.
 | -------------------- | ------------------------------- | --------------------------------------------- | --------- | ----------- |
 | `switch_mode`        | architect ↔ tweaker             | Tight loop inside one workflow                | Cheap     | Preserved   |
 | `new_task`           | orchestrator → architect / tweaker | Top-level delegation of a workflow         | Expensive | Fresh       |
-| `attempt_completion` | architect / tweaker → orchestrator | End of a delegated subtask                | Free      | Returns up  |
+| `attempt_completion` | architect / tweaker → orchestrator | End of the command chain (final phase) | Free | Returns up  |
 
 The orchestrator only uses `new_task`. Modes only use `switch_mode` and
-`attempt_completion`. Crossing those wires is a bug.
+`attempt_completion`. Crossing those wires is a bug. `attempt_completion`
+fires only after the command's final phase — mid-chain mode handoffs use
+`switch_mode`.
 
 ## Phase chains
 
 Some commands are single-skill (`/tweak`, `/prototype`). Others chain
-phases across modes. The two non-trivial chains are `/fix` and `/feature`.
+phases across modes. The composite chains are `/fix`, `/feature`, and
+`/refactor`.
+
+Each composite command writes an unchecked phase checklist to `.scratch/`
+at the start and updates it before every `switch_mode` or
+`attempt_completion`. A worker must not `attempt_completion` while any
+phase is still unchecked — it `switch_mode`s to the phase's owner instead.
+This anchors the chain so a mid-chain mode does not mistake "this phase is
+done" for "the command is done" after the command body scrolls out of
+attention.
 
 ### `/fix` chain
 
@@ -104,9 +115,10 @@ contains, at minimum:
 - a proceed policy
 - a reminder to follow `.roo/rules/01-command-protocol.md`
 - a reminder that skills live under `.roo/skills/...`
-- a completion rule: end with `attempt_completion` containing summary,
-  files inspected/changed, commands/tests run, blockers, and a
-  recommended next command
+- a completion rule: finish the **whole command chain**, then end with
+  `attempt_completion` containing summary, files inspected/changed,
+  commands/tests run, blockers, and a recommended next command. Mid-chain
+  mode handoffs use `switch_mode`, not `attempt_completion`.
 
 Command normalization is handled by `.roo/rules/01-command-protocol.md`,
 not repeated in the delegated message.

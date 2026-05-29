@@ -1,5 +1,7 @@
 # Delegation Message
 
+A delegated task is the **entire command chain** — every phase and mode switch the command body defines, run to its final phase. A worker returns via `attempt_completion` only after that final phase. Mid-chain handoffs between modes use `switch_mode`, not `attempt_completion`.
+
 Every delegated task must include:
 
 - command with slash

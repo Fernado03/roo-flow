@@ -4,6 +4,7 @@ argument-hint: <describe the feature>
 mode: system-architect
 ---
 EXECUTION RULES (Run sequentially. Wait for user between phases):
+0. TRACK: At start, write a phase checklist to `.scratch/feature-<slug>.md` (phases 1-5, each unchecked). Before any `switch_mode` or `attempt_completion`, update it. Do NOT `attempt_completion` while any phase is unchecked — `switch_mode` to the phase's owner instead.
 1. SHARPEN (Architect): Run skill `.roo/skills/engineering/grill-with-docs/SKILL.md`. Update docs.
    HARD STOP: Ask user to choose: Prototype OR skip to PRD.
 2. PROTOTYPE [Optional]: Follow `.roo/rules-system-architect/01-feature-prototype.md` for the architect→tweaker handoff.

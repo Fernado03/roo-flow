@@ -4,6 +4,7 @@ argument-hint: <describe the bug or error>
 mode: system-architect
 ---
 EXECUTION RULES:
+0. TRACK: At start, write a phase checklist to `.scratch/fix-<slug>.md` (phases 1-5, each unchecked). Before any `switch_mode` or `attempt_completion`, update it. Do NOT `attempt_completion` while any phase is unchecked — `switch_mode` to the phase's owner instead.
 1. DIAGNOSE (Architect): Run skill `.roo/skills/engineering/diagnose/SKILL.md`. Run phases 1-3.
    HARD STOP: Present hypotheses. Wait for user selection. Ignore internal AFK rules.
 2. INSTRUMENT (Architect): Run phase 4 on chosen hypothesis. Find root cause.

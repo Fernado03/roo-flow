@@ -112,8 +112,10 @@ Hard stops:
   needs major architecture decisions or the same approach fails three times.
 - Git stop: never run `git commit` or `git push` without explicit user
   approval. Pushes only happen when the user asks.
-- If created by the orchestrator via `new_task`, finish with
-  `attempt_completion`, never with `switch_mode`.
+- Complete the whole chain, not the current phase. `attempt_completion`
+  returns to the orchestrator only after the command's **final** phase.
+  If a later phase belongs to the architect (e.g. `/fix` post-mortem),
+  hand back with `switch_mode` instead of completing early.
 
 ## Command protocol
 
@@ -275,9 +277,10 @@ anything; it hands work off to the architect or the tweaker via
   clean`, `Ask user before implementation`, or `Stop and report only`.
 - A reminder to follow `.roo/rules/01-command-protocol.md`.
 - A reminder that skills live under `.roo/skills/...`.
-- A completion rule: finish with `attempt_completion` containing summary,
-  files inspected/changed, commands/tests run, blockers, and a
-  recommended next command.
+- A completion rule: finish the **whole command chain**, then end with
+  `attempt_completion` containing summary, files inspected/changed,
+  commands/tests run, blockers, and a recommended next command. Mid-chain
+  mode handoffs use `switch_mode`, not `attempt_completion`.
 
 `new_task` opens a fresh subtask window. The boundary is the point.
 Mode-internal context, scratch work, and false starts stay in the
@@ -301,9 +304,22 @@ commits, issue changes, and irreversible actions.
 ## `attempt_completion`
 
 Used at the end of a delegated subtask. It is **not** an escape hatch.
+
+A delegated task is the **entire command chain** — every phase and every
+mode switch the command body defines — not the single phase a mode is
+currently running. A worker returns via `attempt_completion` only after
+the command's **final** phase. Mid-chain handoffs between modes use
+`switch_mode`.
+
 Specifically, the architect must not use `attempt_completion` to skip
 required implementation work — if the work belongs to the tweaker, the
-architect uses `switch_mode` first.
+architect uses `switch_mode` first. Likewise the tweaker must not complete
+out from under a remaining architect phase (e.g. `/fix` post-mortem); it
+`switch_mode`s back. Before any `attempt_completion`, the worker re-checks
+the command body and confirms no later phase is assigned to another mode.
+The composite commands (`/fix`, `/feature`, `/refactor`) persist a phase
+checklist under `.scratch/` so this survives context growth and mode
+switches.
 
 `attempt_completion` returns to the orchestrator with a structured summary.
 The orchestrator then summarizes for the user and halts. It never
